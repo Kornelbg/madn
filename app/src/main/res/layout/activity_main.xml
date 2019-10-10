@@ -24,20 +24,23 @@
         android:id="@+id/buttonUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_marginStart="184dp"
+        android:text="@string/buttonUser"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="184dp"
-        tools:layout_editor_absoluteY="136dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonGuest"
+        app:layout_constraintStart_toStartOf="parent"
         tools:text="@string/buttonUser" />
 
     <Button
         android:id="@+id/buttonGuest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/button"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="402dp"
-        tools:layout_editor_absoluteY="136dp"
+        app:layout_constraintStart_toEndOf="@+id/buttonUser"
+        app:layout_constraintTop_toBottomOf="@+id/mainTitle"
         tools:text="@string/buttonGast" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
