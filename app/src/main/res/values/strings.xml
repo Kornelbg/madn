@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="mainTitle">Willkommen im Spiel \"Mensch ärgere dich nicht\"</string>
+    <string name="buttonUser">Benutzer Erstellen</string>
+    <string name="buttonGast">Als Gast spielen</string>
+    <string name="button">Button</string>
 </resources>
