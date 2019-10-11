@@ -10,37 +10,39 @@
         android:id="@+id/mainTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="67dp"
+        android:layout_marginBottom="61dp"
         android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonUser"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.094"
         tools:text="@string/mainTitle" />
 
     <Button
         android:id="@+id/buttonUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="184dp"
+        android:layout_marginBottom="28dp"
         android:text="@string/buttonUser"
         android:textAlignment="center"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonGuest"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGuest"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainTitle"
         tools:text="@string/buttonUser" />
 
     <Button
         android:id="@+id/buttonGuest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="168dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="460dp"
         android:text="@string/button"
         android:textAlignment="center"
-        app:layout_constraintStart_toEndOf="@+id/buttonUser"
-        app:layout_constraintTop_toBottomOf="@+id/mainTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonUser"
+        app:layout_constraintStart_toStartOf="@+id/buttonUser"
+        app:layout_constraintTop_toBottomOf="@+id/buttonUser"
         tools:text="@string/buttonGast" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
