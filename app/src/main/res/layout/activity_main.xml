@@ -13,6 +13,8 @@
         android:layout_marginTop="67dp"
         android:layout_marginBottom="61dp"
         android:text="Hello World!"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
         app:layout_constraintBottom_toTopOf="@+id/buttonUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,8 +23,8 @@
 
     <Button
         android:id="@+id/buttonUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="28dp"
         android:text="@string/buttonUser"
         android:textAlignment="center"
@@ -34,8 +36,8 @@
 
     <Button
         android:id="@+id/buttonGuest"
-        android:layout_width="168dp"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="460dp"
         android:text="@string/button"
         android:textAlignment="center"
