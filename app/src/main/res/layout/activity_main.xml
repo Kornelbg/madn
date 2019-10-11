@@ -25,13 +25,14 @@
         android:id="@+id/buttonUser"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginTop="152dp"
+        android:layout_marginBottom="109dp"
         android:text="@string/buttonUser"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGuest"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainTitle"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/buttonUser" />
 
     <Button
@@ -46,5 +47,17 @@
         app:layout_constraintStart_toStartOf="@+id/buttonUser"
         app:layout_constraintTop_toBottomOf="@+id/buttonUser"
         tools:text="@string/buttonGast" />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="384dp"
+        android:text="@string/buttonLogin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonUser" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
