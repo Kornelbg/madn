@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
@@ -12,52 +13,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="67dp"
         android:layout_marginBottom="61dp"
-        android:text="Hello World!"
+        android:text="@string/mainTitle"
         android:textSize="18sp"
-        android:textStyle="normal|bold"
-        app:layout_constraintBottom_toTopOf="@+id/buttonUser"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/mainTitle" />
+        android:textStyle="normal|bold" />
 
     <Button
         android:id="@+id/buttonUser"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
-        android:layout_marginBottom="109dp"
-        android:text="@string/buttonUser"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/buttonLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/buttonUser" />
+        android:text="@string/buttonUser" />
 
     <Button
         android:id="@+id/buttonGuest"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="460dp"
-        android:text="@string/button"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/buttonUser"
-        app:layout_constraintStart_toStartOf="@+id/buttonUser"
-        app:layout_constraintTop_toBottomOf="@+id/buttonUser"
-        tools:text="@string/buttonGast" />
+        android:text="@string/buttonGast" />
 
     <Button
         android:id="@+id/buttonLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="384dp"
-        android:text="@string/buttonLogin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonUser" />
+        android:text="@string/buttonLogin" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
