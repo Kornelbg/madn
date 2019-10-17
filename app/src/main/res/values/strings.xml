@@ -6,4 +6,5 @@
     <string name="buttonLogin">Login</string>
     <string name="hintUserName">USERNAME</string>
     <string name="hintUserPassword">PASSWORD</string>
+    <string name="buttonUserInput">Speichern</string>
 </resources>
