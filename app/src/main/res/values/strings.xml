@@ -4,4 +4,6 @@
     <string name="buttonUser">Benutzer Erstellen</string>
     <string name="buttonGast">Als Gast spielen</string>
     <string name="buttonLogin">Login</string>
+    <string name="hintUserName">USERNAME</string>
+    <string name="hintUserPassword">PASSWORD</string>
 </resources>
