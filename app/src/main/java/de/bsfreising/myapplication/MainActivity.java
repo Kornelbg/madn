@@ -48,10 +48,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 setContentView(R.layout.createuser);
                 break;
             case R.id.buttonGuest:
-
+                setContentView(R.layout.playasguest);
                 break;
             case  R.id.buttonLogin:
-
+                setContentView(R.layout.login);
                 break;
         }
 
