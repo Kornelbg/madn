@@ -45,10 +45,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
         //switch Abfrage auf id der Buttons
         switch (v.getId()) {
             case  R.id.buttonUser:
+                setContentView(R.layout.createuser);
                 break;
             case R.id.buttonGuest:
+
                 break;
             case  R.id.buttonLogin:
+
                 break;
         }
 
