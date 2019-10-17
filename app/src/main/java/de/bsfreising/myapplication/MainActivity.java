@@ -7,12 +7,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 public class MainActivity extends Activity implements View.OnClickListener {
 
     //buttons
     private Button buttonUser;
     private Button buttonGuest;
     private Button buttonLogin;
+
+    private Button buttonUserlogin;
+    private Button buttonUserBack;
+
+    private TextInputEditText inputUserName;
+    private TextInputEditText userInputPassword;
 
 
     @Override
@@ -26,6 +34,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         buttonUser = findViewById(R.id.buttonUser);
         buttonGuest = findViewById(R.id.buttonGuest);
         buttonLogin = findViewById(R.id.buttonLogin);
+
+        buttonUserlogin = findViewById(R.id.buttonUserlogin);
+        buttonUserBack = findViewById(R.id.buttonUserBack);
+
+        inputUserName = findViewById(R.id.inputUserName);
+        userInputPassword = findViewById(R.id.userInputPassword);
 
         //Butons onclicklistener gesetzt
         buttonUser.setOnClickListener(this);
@@ -53,6 +67,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case  R.id.buttonLogin:
                 setContentView(R.layout.login);
+                break;
+            case R.id.buttonUserlogin:
+                break;
+            case R.id.buttonUserBack:
                 break;
         }
 
