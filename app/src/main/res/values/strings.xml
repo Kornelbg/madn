@@ -6,9 +6,6 @@
     <string name="buttonLogin">Login</string>
     <string name="hintUserName">USERNAME</string>
     <string name="hintUserPassword">PASSWORD</string>
-<<<<<<< HEAD
     <string name="back">zurück</string>
-=======
     <string name="buttonUserInput">Speichern</string>
->>>>>>> 03909163511a224253e36e070fdd82ec016edf53
 </resources>
