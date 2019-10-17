@@ -9,10 +9,10 @@ import android.widget.Button;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
-    //buttons buttons id zuweisung
-    private Button buttonUser = findViewById(R.id.buttonUser);
-    private Button buttonGuest = findViewById(R.id.buttonGuest);
-  //  private Button buttonGuest = findViewById(R.id.buttonGuest);
+    //buttons
+    private Button buttonUser;
+    private Button buttonGuest;
+    private Button buttonLogin;
 
 
     @Override
@@ -22,32 +22,53 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         setContentView(R.layout.activity_main);
 
+        //buttons id zuweisung
+        buttonUser = findViewById(R.id.buttonUser);
+        buttonGuest = findViewById(R.id.buttonGuest);
+        buttonLogin = findViewById(R.id.buttonLogin);
 
         //Butons onclicklistener gesetzt
         buttonUser.setOnClickListener(this);
         buttonGuest.setOnClickListener(this);
-       // buttonGuest.setOnClickListener(this);
+        buttonLogin.setOnClickListener(this);
 
 
 
     }
 
-    public boolean logginDatei( String user, String passwd ) {
 
-        // gibt an ob user und eingangsdaten kombination in datei vorhanden ist
-        boolean u_p_in_datei = false;
-
-
-
-        return u_p_in_datei;
-    }
 
 
     @Override
     public void onClick(View v) {
 
         //switch Abfrage auf id der Buttons
+        switch (v.getId()) {
+            case  R.id.buttonUser:
+                break;
+            case R.id.buttonGuest:
+                break;
+            case  R.id.buttonLogin:
+                break;
+        }
 
 
     }
+
+    public void createUser() {
+        //User erstellen --> in Datei und auf Server anlegen, wenn user auf server schonn vorhandes dieses mitteilen
+    }
+
+    public void login() {
+        // Aufruf der Methode "logginDatei" wenn user hier vorhanden und Daten richtig sind login zulassen
+    }
+
+    public boolean logginDatei( String user, String passwd ) {
+
+        // gibt an ob user und eingangsdaten kombination in datei vorhanden ist wenn nicht abfrage
+        boolean u_p_in_datei = false;
+
+        return u_p_in_datei;
+    }
+
 }
