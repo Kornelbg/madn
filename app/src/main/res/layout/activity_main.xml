@@ -1,38 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#4F549C"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/mainTitle"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="67dp"
-        android:layout_marginBottom="61dp"
-        android:text="@string/mainTitle"
-        android:textSize="18sp"
-        android:textStyle="normal|bold" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/buttonUser"
-        android:layout_width="match_parent"
+        <Button
+            android:id="@+id/buttonMenu"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:background="@android:drawable/ic_menu_sort_by_size" />
+
+        <Button
+            android:id="@+id/buttonInfo"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_weight="1"
+            android:background="@android:drawable/ic_menu_info_details" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/buttonUser" />
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/buttonGuest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/buttonGast" />
+        <TextView
+            android:id="@+id/mainTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="monospace"
+            android:text="@string/mainTitle"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="normal|bold" />
 
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/buttonLogin" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="monospace"
+            android:gravity="center_horizontal"
+            android:text="@string/mainTitle2"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:src="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundColor="@color/colorAccent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/loginInputUserName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hintUserName"
+                        android:textAlignment="textStart"
+                        android:visibility="visible" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/loginUserInputPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/hintUserPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkBoxRememberMe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/remember_me"
+                        android:textSize="10sp" />
+
+                    <FrameLayout
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent">
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textViewButtonUser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:contextClickable="true"
+                            android:text="@string/buttonUser"
+                            android:textColor="#052CFF" />
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonLogin"
+            style="@android:style/Widget.Holo.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#f962b8"
+            android:text="@string/buttonLogin" />
+
+        <Button
+            android:id="@+id/buttonGuest"
+            style="@android:style/Widget.Holo.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#e5348b"
+            android:text="@string/buttonGast" />
+
+    </LinearLayout>
+
+</FrameLayout>

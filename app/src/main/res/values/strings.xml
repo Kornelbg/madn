@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="mainTitle">Willkommen im Spiel \"Mensch ärgere dich nicht\"</string>
-    <string name="buttonUser">Benutzer Erstellen</string>
+    <string name="mainTitle">Willkommen im Spiel</string>
+    <string name="buttonUser">Benutzer erstellen</string>
     <string name="buttonGast">Als Gast spielen</string>
     <string name="buttonLogin">Login</string>
     <string name="hintUserName">USERNAME</string>
     <string name="hintUserPassword">PASSWORD</string>
     <string name="back">zurück</string>
-    <string name="buttonUserInput">Speichern</string>
+    <string name="buttonUserInput">erstellen</string>
+    <string name="mainTitle2">\"Mensch ärgere dich nicht\"</string>
+    <string name="remember_me">remember me</string>
+    <string name="TextViewBenutzerErstellen">Benutzer erstellen</string>
+    <string name="DefaultControll">WIEDERHOLUNG</string>
 </resources>
