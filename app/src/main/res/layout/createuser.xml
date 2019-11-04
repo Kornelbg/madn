@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ff497f"
@@ -15,17 +15,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textViewCreateUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10sp"
             android:fontFamily="monospace"
             android:text="@string/TextViewBenutzerErstellen"
             android:textColor="#FFFFFF"
             android:textSize="24sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputNickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hintNickName"
+                android:textAlignment="textStart"
+                android:visibility="visible" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -53,11 +69,35 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userInputPasswordWiederholen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hintUserPasswordWiederholen" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_marginBottom="20sp"
+            android:text="CheckBox" />
+
         <Button
             android:id="@+id/buttonUserInput"
+            style="@android:style/Widget.Holo.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#4f549C"
             android:text="@string/buttonUserInput" />
     </LinearLayout>
 
-</LinearLayout>
+
+
+</FrameLayout>

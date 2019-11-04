@@ -12,4 +12,10 @@
     <string name="remember_me">remember me</string>
     <string name="TextViewBenutzerErstellen">Benutzer erstellen</string>
     <string name="DefaultControll">WIEDERHOLUNG</string>
+    <string name="allgemeineInfoUE">Allgemeine Informationen</string>
+    <string name="AllgemeineInfoText">Beispieltext \n Beispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \n
+    Beispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \n
+    Beispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \n</string>
+    <string name="hintUserPasswordWiederholen">PASSWORD WIEDERHOLEN</string>
+    <string name="hintNickName">NICKNAME</string>
 </resources>

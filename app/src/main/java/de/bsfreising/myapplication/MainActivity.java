@@ -1,10 +1,13 @@
 package de.bsfreising.myapplication;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -16,9 +19,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
             private Button buttonGuest;
             private TextView buttonUser;
             private Button buttonLogin;
-            private Button buttonMenu;
             private Button buttonInfo;
             private CheckBox checkBoxRememberMe;
+
+
+
+            private TextInputEditText loginInputUserName;
+            private TextInputEditText loginUserInputPassword;
 
 
     //Layouts Createuser
@@ -39,6 +46,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
             private Button buttonLoginUserBack;
 
 
+    //Layouts Info
+        //Buttons
+          private Button buttonInfoClose;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +61,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         startbildschirm();
 
 
-        //  muss in die richtige Methode!!  //
-        //buttonUserlogin = findViewById(R.id.buttonUserlogin);
-        //inputUserName = findViewById(R.id.inputUserName);
-        //userInputPassword = findViewById(R.id.userInputPassword);
-
-
-
     }
+
+
 
 
 
@@ -75,11 +83,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.buttonLogin :
                 login();
                 break;
-            case R.id.buttonMenu :
-                // Menu View erstellen + Methode
-                break;
             case R.id.buttonInfo :
-                    //View erstellen
+                setInfo();
                 break;
 
             // Abfrage Buttons Create User
@@ -92,14 +97,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.buttonPlayAsGuestBack :
                 startbildschirm();
                 break;
-
-
-
-
+                //ada
+            //Abfrage Buttons allegemeine_info
+            case R.id.buttonInfoClose :
+                startbildschirm();
+                break;
         }
-
-
     }
+
     public void startbildschirm() {
         //setzen des aktiven Layouts
         setContentView(R.layout.activity_main);
@@ -108,14 +113,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         buttonUser = findViewById(R.id.textViewButtonUser);
         buttonGuest = findViewById(R.id.buttonGuest);
         buttonLogin = findViewById(R.id.buttonLogin);
-        buttonMenu = findViewById(R.id.buttonMenu);
         buttonInfo = findViewById(R.id.buttonInfo);
         checkBoxRememberMe = findViewById(R.id.checkBoxRememberMe);
 
         buttonUser.setOnClickListener(this);
         buttonGuest.setOnClickListener(this);
         buttonLogin.setOnClickListener(this);
-        buttonMenu.setOnClickListener(this);
         buttonInfo.setOnClickListener(this);
 
         //checkBoxRememberMe
@@ -123,20 +126,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void benutzererErstellen() {
         //setzen des aktiven Layouts
-        setContentView(R.layout.createuser);
-
-/*        //TextInputEditText --> Usereingaben
-        inputUserName = findViewById(R.id.inputUserName);
-        userInputPassword = findViewById(R.id.userInputPassword);
-
-
+        //setContentView(R.layout.createuser);
+        //TextInputEditText --> Usereingaben
         //Button Speichern
-        buttonUserInput = findViewById(R.id.buttonUserInput);
-        buttonUserInput.setOnClickListener(this);
-*/
         //Button zurück
-        buttonCreatUserBack = findViewById(R.id.buttonCreatUserBack);
-        buttonCreatUserBack.setOnClickListener(this);
+        //buttonCreatUserBack = findViewById(R.id.buttonCreatUserBack);
+        //buttonCreatUserBack.setOnClickListener(this);
+
+        startActivity(new Intent(this, CreatUser.class));
 
     }
     public void alsGastSpielen() {
@@ -154,6 +151,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void login() {
         // Aufruf der Methode "logginDatei" wenn user hier vorhanden und Daten richtig sind login zulassen
+
+        if(checkBoxRememberMe.isChecked()) {
+            // in XML Hacken aktivieren und username mit dem letzen parameter füllen
+        }else{
+            //in XML Hacken deaktivieren und user name auf null setzen damit der Default Wert geschrieben wird
+        }
+
     }
 
     public boolean logginDatei( String user, String passwd ) {
@@ -162,6 +166,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
         boolean u_p_in_datei = false;
 
         return u_p_in_datei;
+    }
+
+    public void setInfo() {
+
+        //Dialog dialog = new Dialog(this, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
+        //dialog.setContentView(R.layout.allgemeine_info);
+        //dialog.show();
+
+        setContentView(R.layout.allgemeine_info);
+        buttonInfoClose = findViewById(R.id.buttonInfoClose);
+        buttonInfoClose.setOnClickListener(this);
+      // einfügen!!!  startActivity(new Intent(this, GameActivity.class));
+
     }
 
 }
