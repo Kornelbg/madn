@@ -35,7 +35,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             private TextInputEditText inputUserName;
             private TextInputEditText userInputPassword;
 
-            private boolean isCheckBoxRememberMe = false;
+            private String isCheckBoxRememberMe = "false";
 
 
     @Override
@@ -93,6 +93,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         buttonLogin.setOnClickListener(this);
         buttonInfo.setOnClickListener(this);
 
+        loginInputUserName = findViewById(R.id.loginInputUserName);
+
+        mReadSharedPreferences();
+
         //checkBoxRememberMe
     }
 
@@ -117,10 +121,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
         // Aufruf der Methode "logginDatei" wenn user hier vorhanden und Daten richtig sind login zulassen
 
         if(checkBoxRememberMe.isChecked()) {
-            System.out.println("hallo");
+            //System.out.println("hallo");
         }else{
             //in XML Hacken deaktivieren und user name auf null setzen damit der Default Wert geschrieben wird
         }
+
+
+        mSaveSharedPreferences(); // Speichert den Username wen Rememberme true ist
 
     }
 
@@ -133,19 +140,39 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
 
-    public void dada(){
-
-        if(checkBoxRememberMe.isChecked()){
-            isCheckBoxRememberMe = true;
-        }
-        else{
-            isCheckBoxRememberMe = false;
-        }
+    public void mSaveSharedPreferences(){
         SharedPreferences mySPR = this.getSharedPreferences("MenschaergerFichNicht", Context.MODE_PRIVATE);
 
         SharedPreferences.Editor editor = mySPR.edit();
 
-       // editor.putString("Key_1", )
+        if(checkBoxRememberMe.isChecked()){
+            isCheckBoxRememberMe = "true";
+            editor.putString("Key_2", loginInputUserName.getText().toString());
+        }
+        else{
+            isCheckBoxRememberMe = "false";
+            editor.putString("Key_2", "");
+        }
+        editor.putString("Key_1", isCheckBoxRememberMe);
+        editor.commit();
+      //  String dad = loginInputUserName.getText().toString();
+
+    }
+    public void mReadSharedPreferences() {
+        SharedPreferences mySPR = this.getSharedPreferences("MenschaergerFichNicht", Context.MODE_PRIVATE);
+        if (mySPR.getString("Key_1", "false").toString().equals("ture")){
+            loginInputUserName.setText(mySPR.getString("Key_2", "false"));
+        }else{
+          //  loginInputUserName.setText(mySPR.getString("Key_2", "false"));
+        }
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        mSaveSharedPreferences();
 
     }
 
