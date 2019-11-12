@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "607775407603",
+    "firebase_url": "https://aep-2019.firebaseio.com",
+    "project_id": "aep-2019",
+    "storage_bucket": "aep-2019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:607775407603:android:0078ac7ee5a2612648e686",
+        "android_client_info": {
+          "package_name": "de.bsfreising.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "607775407603-l82pv0ivamcoifvl62lhj131q3u1tvi8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2TzFzAJW2YaapORS_YOvqcHucue36rco"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "607775407603-l82pv0ivamcoifvl62lhj131q3u1tvi8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

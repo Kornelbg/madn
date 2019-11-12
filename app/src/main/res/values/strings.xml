@@ -13,9 +13,8 @@
     <string name="TextViewBenutzerErstellen">Benutzer erstellen</string>
     <string name="DefaultControll">WIEDERHOLUNG</string>
     <string name="allgemeineInfoUE">Allgemeine Informationen</string>
-    <string name="AllgemeineInfoText">Beispieltext \n Beispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \n
-    Beispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \n
-    Beispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \nBeispieltext \n</string>
+    <string name="AllgemeineInfoText">Absatz 1</string>
     <string name="hintUserPasswordWiederholen">PASSWORD WIEDERHOLEN</string>
     <string name="hintNickName">NICKNAME</string>
+    <string name="Absatz2">Absatz 2 </string>
 </resources>
