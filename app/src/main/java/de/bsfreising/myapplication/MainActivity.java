@@ -28,10 +28,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             private TextInputEditText loginUserInputPassword;
 
 
-    //Layouts Createuser
-        //Buttons
-            private Button buttonCreatUserBack;
-            private Button buttonUserInput;
 
         //TextInputEditTExt
             private TextInputEditText inputUserName;
@@ -41,32 +37,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         //Buttons
             private Button buttonPlayAsGuestBack;
 
-    //Layouts loggin
-        //Buttons
-            private Button buttonLoginUserBack;
-
-
-    //Layouts Info
-        //Buttons
-          private Button buttonInfoClose;
-
-
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         startbildschirm();
-
-
     }
-
-
-
-
-
 
     @Override
     public void onClick(View v) {
@@ -125,13 +103,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     public void benutzererErstellen() {
-        //setzen des aktiven Layouts
-        //setContentView(R.layout.createuser);
-        //TextInputEditText --> Usereingaben
-        //Button Speichern
-        //Button zurück
-        //buttonCreatUserBack = findViewById(R.id.buttonCreatUserBack);
-        //buttonCreatUserBack.setOnClickListener(this);
 
         startActivity(new Intent(this, CreatUser.class));
 
@@ -145,9 +116,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         buttonPlayAsGuestBack.setOnClickListener(this);
     }
 
-    public void createUser() {
-        //User erstellen --> in Datei und auf Server anlegen, wenn user auf server schonn vorhandes dieses mitteilen
-    }
 
     public void login() {
         // Aufruf der Methode "logginDatei" wenn user hier vorhanden und Daten richtig sind login zulassen
@@ -170,14 +138,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void setInfo() {
 
-        //Dialog dialog = new Dialog(this, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
-        //dialog.setContentView(R.layout.allgemeine_info);
-        //dialog.show();
-
-        setContentView(R.layout.allgemeine_info);
-        buttonInfoClose = findViewById(R.id.buttonInfoClose);
-        buttonInfoClose.setOnClickListener(this);
-      // einfügen!!!  startActivity(new Intent(this, GameActivity.class));
+        startActivity(new Intent(this, Info_1.class));
 
     }
 
