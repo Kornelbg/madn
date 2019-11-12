@@ -65,7 +65,8 @@
                 android:id="@+id/userInputPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hintUserPassword" />
+                android:hint="@string/hintUserPassword"
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,7 +78,8 @@
                 android:id="@+id/userInputPasswordWiederholen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hintUserPasswordWiederholen" />
+                android:hint="@string/hintUserPasswordWiederholen"
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
