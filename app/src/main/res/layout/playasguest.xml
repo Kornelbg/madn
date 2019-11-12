@@ -5,12 +5,6 @@
     android:background="#ff7356"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/buttonPlayAsGuestBack"
-        android:layout_width="40sp"
-        android:layout_height="40sp"
-        android:background="@android:drawable/ic_menu_revert" />
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

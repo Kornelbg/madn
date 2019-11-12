@@ -23,6 +23,20 @@ public class Info_1 extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(this, MainActivity.class));
+        //
+        switch (v.getId()) {
+            case R.id.buttonInfoClose:
+                mButtonInfoClose();
+                break;
+
+
+        }
+
     }
+
+    public void mButtonInfoClose() {
+        finish();
+    }
+
+
 }

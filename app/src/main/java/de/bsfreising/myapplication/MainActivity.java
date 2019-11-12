@@ -2,7 +2,9 @@ package de.bsfreising.myapplication;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,10 +35,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             private TextInputEditText inputUserName;
             private TextInputEditText userInputPassword;
 
-    //Layouts playasguest
-        //Buttons
-            private Button buttonPlayAsGuestBack;
-
+            private boolean isCheckBoxRememberMe = false;
 
 
     @Override
@@ -70,11 +69,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startbildschirm();
                 break;
 
-                //ada
-            //Abfrage Buttons playasGuest
-            case R.id.buttonPlayAsGuestBack :
-                startbildschirm();
-                break;
                 //ada
             //Abfrage Buttons allegemeine_info
             case R.id.buttonInfoClose :
@@ -110,18 +104,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void alsGastSpielen() {
         //setzen des aktiven Layouts
         setContentView(R.layout.playasguest);
-
-        //Button buttonGuestback
-        buttonPlayAsGuestBack = findViewById(R.id.buttonPlayAsGuestBack);
-        buttonPlayAsGuestBack.setOnClickListener(this);
     }
+    public void setInfo() {
+
+        startActivity(new Intent(this, Info_1.class));
+
+    }
+
 
 
     public void login() {
         // Aufruf der Methode "logginDatei" wenn user hier vorhanden und Daten richtig sind login zulassen
 
         if(checkBoxRememberMe.isChecked()) {
-            // in XML Hacken aktivieren und username mit dem letzen parameter füllen
+            System.out.println("hallo");
         }else{
             //in XML Hacken deaktivieren und user name auf null setzen damit der Default Wert geschrieben wird
         }
@@ -136,10 +132,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
         return u_p_in_datei;
     }
 
-    public void setInfo() {
 
-        startActivity(new Intent(this, Info_1.class));
+    public void dada(){
+
+        if(checkBoxRememberMe.isChecked()){
+            isCheckBoxRememberMe = true;
+        }
+        else{
+            isCheckBoxRememberMe = false;
+        }
+        SharedPreferences mySPR = this.getSharedPreferences("MenschaergerFichNicht", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = mySPR.edit();
+
+       // editor.putString("Key_1", )
 
     }
+
 
 }
