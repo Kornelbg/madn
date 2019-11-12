@@ -145,7 +145,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         SharedPreferences.Editor editor = mySPR.edit();
 
-        if(checkBoxRememberMe.isChecked()){
+        if(checkBoxRememberMe.isChecked()&& !(loginInputUserName.getText().toString().equals(""))){
             isCheckBoxRememberMe = "true";
             editor.putString("Key_2", loginInputUserName.getText().toString());
         }
@@ -160,10 +160,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
     public void mReadSharedPreferences() {
         SharedPreferences mySPR = this.getSharedPreferences("MenschaergerFichNicht", Context.MODE_PRIVATE);
-        if (mySPR.getString("Key_1", "false").toString().equals("ture")){
+
+        if (mySPR.getString("Key_1", "false").toString().equals("true")){
+
             loginInputUserName.setText(mySPR.getString("Key_2", "false"));
+            checkBoxRememberMe.setChecked(true);
         }else{
-          //  loginInputUserName.setText(mySPR.getString("Key_2", "false"));
+            loginInputUserName.setText("");
+            checkBoxRememberMe.setChecked(false);
         }
 
     }
