@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends Activity implements View.OnClickListener {
 
     // Layoutes activity-main
@@ -20,7 +22,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
             private TextView buttonUser;
             private Button buttonLogin;
             private Button buttonInfo;
+            private Button buttonRegister;
+            private TextInputEditText userEmail;
+            private TextInputEditText userNickname;
+            private TextView textViewCreateUser;
             private CheckBox checkBoxRememberMe;
+
 
 
 
@@ -39,6 +46,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        buttonRegister = (Button) findViewById(R.id.buttonUserInput);
+        userEmail = (TextInputEditText) findViewById(R.id.inputUserName);
+        textViewCreateUser = (TextView) findViewById(R.id.textViewCreateUser);
+
+        buttonRegister.setOnClickListener(this);
+        textViewCreateUser.setOnClickListener(this);
 
         startbildschirm();
     }
