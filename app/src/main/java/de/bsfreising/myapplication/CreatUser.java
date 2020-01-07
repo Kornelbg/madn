@@ -1,18 +1,31 @@
 package de.bsfreising.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.icu.text.AlphabeticIndex;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AlphabetIndexer;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class CreatUser extends Activity implements View.OnClickListener {
 
@@ -21,16 +34,20 @@ public class CreatUser extends Activity implements View.OnClickListener {
 
     private CheckBox checkBoxCreateuserAGBs;
     private TextView textViewCreateuserAGBs;
+    private FirebaseAuth firebaseAuth;
 
     private EditText inputNickname;
     private EditText inputUserName;
     private EditText userInputPassword;
     private EditText userInputPasswordWiederholen;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.createuser);
+        progressDialog = new ProgressDialog(this);
+        firebaseAuth = FirebaseAuth.getInstance();
 
         buttonCreatUserBack = findViewById(R.id.buttonCreatUserBack);
         buttonUserInput = findViewById(R.id.buttonUserInput);
@@ -94,6 +111,38 @@ public class CreatUser extends Activity implements View.OnClickListener {
     }
 
     public void mBenutzerErstellen() {
+
+        String email = inputNickname.getText().toString().trim();
+        String username = inputUserName.getText().toString().trim();
+        String password = userInputPassword.getText().toString().trim();
+
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(this, "Bitte die E-Mail Adresse eingeben", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty((password))) {
+            Toast.makeText(this, "Bitte Password eingeben", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        progressDialog.setMessage("Benutzer wird registriert...");
+        progressDialog.show();
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful())
+                        {
+                            Toast.makeText(CreatUser.this, "Erforlgreich registriert", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(CreatUser.this, "Registrierung fehlgeschlagen", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+        );
+
+        progressDialog.dismiss();
 
         if (inputNickname.getText().toString().length() > 2  &&
                 inputUserName.getText().toString().length() > 2 &&
