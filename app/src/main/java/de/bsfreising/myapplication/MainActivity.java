@@ -1,17 +1,26 @@
 package de.bsfreising.myapplication;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.w3c.dom.Text;
 
@@ -28,6 +37,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             private TextInputEditText userNickname;
             private TextView textViewCreateUser;
             private CheckBox checkBoxRememberMe;
+            private ProgressDialog progressDialog;
+            FirebaseAuth firebaseAuth;
 
 
 
@@ -59,11 +70,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
         buttonRegister = (Button) findViewById(R.id.buttonUserInput);
         userEmail = (TextInputEditText) findViewById(R.id.inputUserName);
         textViewCreateUser = (TextView) findViewById(R.id.textViewCreateUser);
-
-        //buttonRegister.setOnClickListener(this);
-      //  textViewCreateUser.setOnClickListener(this);
-
-
+        progressDialog = new ProgressDialog(this);
+        firebaseAuth = FirebaseAuth.getInstance();
+        
+        if (firebaseAuth.getCurrentUser() != null) {
+            finish();                                                         
+            startActivity(new Intent(getApplicationContext(), Spiel.class));
+        }
 
         startbildschirm();
     }
@@ -187,18 +200,43 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     }
 
-    public void login() {
+    private void login() {
+
 
         mSaveSharedPreferences(); // Speichert den Username wen Rememberme true ist
-
         //verbinfung zu Fierbase aufbauen und dateneingabe üermitteln
+        String email = userEmail.getText().toString().trim();
+        String password = loginUserInputPassword.getText().toString().trim();
 
-        // loginInputUserName können mit "loginInputUserName.getText().toString()" abgerufen werden
-        // loginUserInputPassword können mit "loginUserInputPassword.getText().toString()" abgerufen werden
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(this, "Bitte die E-Mail Adresse eingeben", Toast.LENGTH_SHORT).show();
+
+            return;
+        }
+  
+        if (TextUtils.isEmpty((password))) {
+            Toast.makeText(this, "Bitte Password eingeben", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        progressDialog.setMessage("Anmeldung läuft");
+        progressDialog.show();
+
+        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressDialog.dismiss();   
+                        if (task.isSuccessful()) {
+                            finish();
+                            startActivity(new Intent(getApplicationContext(), Spiel.class));
+                        }
+                
+                
+                    }
+                }
+        );
 
     }
-
-
 
 
     public void mSaveSharedPreferences(){

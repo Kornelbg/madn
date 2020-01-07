@@ -6,4 +6,9 @@
     android:background="#E70808"
     tools:context=".Spiel">
 
+    <TextView
+        android:id="@+id/textViewUser"
+        android:layout_width="238dp"
+        android:layout_height="50dp"
+        android:text="TextView" />
 </FrameLayout>
