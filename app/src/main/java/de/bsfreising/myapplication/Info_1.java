@@ -1,9 +1,6 @@
 package de.bsfreising.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +14,7 @@ public class Info_1 extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.allgemeine_info);
 
-         buttonInfoClose = findViewById(R.id.buttonInfoClose);
+         buttonInfoClose = findViewById(R.id.buttonAGBsClose);
          buttonInfoClose.setOnClickListener(this);
     }
 
@@ -25,7 +22,7 @@ public class Info_1 extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         //
         switch (v.getId()) {
-            case R.id.buttonInfoClose:
+            case R.id.buttonAGBsClose:
                 mButtonInfoClose();
                 break;
 

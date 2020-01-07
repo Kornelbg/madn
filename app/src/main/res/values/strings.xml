@@ -17,4 +17,18 @@
     <string name="hintUserPasswordWiederholen">PASSWORD WIEDERHOLEN</string>
     <string name="hintNickName">NICKNAME</string>
     <string name="Absatz2">Absatz 2 </string>
+    <string name="MultyPlayerOffline">Multyplayer offline</string>
+    <string name="MultyPlayerOnline">Multyplaer Online</string>
+    <string name="richtlinien">AGBs</string>
+    <string name="spielErstellen">erstellen</string>
+    <string name="Spieler_1">Spieler 1</string>
+    <string name="Spieler_2">Spieler 2</string>
+    <string name="Spieler_3">Spieler 3</string>
+    <string name="Spieler_4">Spieler 4</string>
+
+    <string-array name="spielertyp">
+        <item>Leer</item>
+        <item>User</item>
+        <item>Boot</item>
+    </string-array>
 </resources>

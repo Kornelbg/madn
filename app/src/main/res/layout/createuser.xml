@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff497f"
+    android:background="#56C42E"
     android:orientation="vertical">
 
     <Button
@@ -38,6 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hintNickName"
+                android:maxLength="30"
+                android:singleLine="true"
                 android:textAlignment="textStart"
                 android:visibility="visible" />
 
@@ -53,6 +55,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/hintUserName"
                 android:textAlignment="textStart"
+                android:maxLength="30"
+                android:singleLine="true"
                 android:visibility="visible" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -66,6 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hintUserPassword"
+                android:maxLength="30"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -78,18 +83,33 @@
                 android:id="@+id/userInputPasswordWiederholen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLength="30"
                 android:hint="@string/hintUserPasswordWiederholen"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10sp"
-            android:layout_marginBottom="20sp"
-            android:text="CheckBox" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5sp"
+            android:layout_marginBottom="10sp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkBoxCreateuserAGBs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textViewCreateuserAGBs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/richtlinien"
+                android:textColor="#052CFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/buttonUserInput"
@@ -99,7 +119,6 @@
             android:backgroundTint="#4f549C"
             android:text="@string/buttonUserInput" />
     </LinearLayout>
-
 
 
 </FrameLayout>

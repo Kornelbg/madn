@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -29,11 +30,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
 
-        //TextInputEditTExt
-            private TextInputEditText inputUserName;
-            private TextInputEditText userInputPassword;
-
+            //
             private String isCheckBoxRememberMe = "false";
+
+            //
+            private Button buttonMainActivity;
+            private Button buttoPAGnInfo;
+
+            private Button buttonGuest_Spielen;
+
+
+            private Spinner spinnerGuestSpielerstellen_1;
+            private Spinner spinnerGuestSpielerstellen_2;
+            private Spinner spinnerGuestSpielerstellen_3;
+            private Spinner spinnerGuestSpielerstellen_4;
 
 
     @Override
@@ -59,7 +69,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 login();
                 break;
             case R.id.buttonInfo :
-                setInfo();
+                Info();
                 break;
 
             // Abfrage Buttons Create User
@@ -67,23 +77,36 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startbildschirm();
                 break;
 
-                //ada
-            //Abfrage Buttons allegemeine_info
-            case R.id.buttonInfoClose :
+            //playasguest Buttons
+            case R.id.buttonPAGMainActivity:
                 startbildschirm();
                 break;
+            case R.id.buttoPAGnInfo:
+                Info();
+                break;
+            case R.id.buttonGuest_Spielen:
+                intentSpiel();
+                break;
+
+
+
+
         }
     }
+
 
     public void startbildschirm() {
         //setzen des aktiven Layouts
         setContentView(R.layout.activity_main);
 
+        loginInputUserName = findViewById(R.id.loginInputUserName);
+        loginUserInputPassword = findViewById(R.id.loginUserInputPassword);
 
         buttonUser = findViewById(R.id.textViewButtonUser);
         buttonGuest = findViewById(R.id.buttonGuest);
         buttonLogin = findViewById(R.id.buttonLogin);
         buttonInfo = findViewById(R.id.buttonInfo);
+
         checkBoxRememberMe = findViewById(R.id.checkBoxRememberMe);
 
         buttonUser.setOnClickListener(this);
@@ -91,11 +114,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         buttonLogin.setOnClickListener(this);
         buttonInfo.setOnClickListener(this);
 
-        loginInputUserName = findViewById(R.id.loginInputUserName);
+
 
         mReadSharedPreferences();
-
-        //checkBoxRememberMe
     }
 
     public void benutzererErstellen() {
@@ -106,14 +127,50 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void alsGastSpielen() {
         //setzen des aktiven Layouts
         setContentView(R.layout.playasguest);
+
+        buttonMainActivity = findViewById(R.id.buttonPAGMainActivity);
+        buttoPAGnInfo = findViewById(R.id.buttoPAGnInfo);
+        buttonGuest_Spielen = findViewById(R.id.buttonGuest_Spielen);
+
+        spinnerGuestSpielerstellen_1 = findViewById(R.id.spinnerGuestSpielerstellen_1);
+        spinnerGuestSpielerstellen_2 = findViewById(R.id.spinnerGuestSpielerstellen_2);
+        spinnerGuestSpielerstellen_3 = findViewById(R.id.spinnerGuestSpielerstellen_3);
+        spinnerGuestSpielerstellen_4 = findViewById(R.id.spinnerGuestSpielerstellen_4);
+
+
+
+        buttonMainActivity.setOnClickListener(this);
+        buttoPAGnInfo.setOnClickListener(this);
+        buttonGuest_Spielen.setOnClickListener(this);
+
     }
-    public void setInfo() {
+
+    public void intentSpiel() {
+
+        Intent spiel = new Intent(MainActivity.this, Spiel.class);
+
+/*        switch (spinnerGuestSpielerstellen_1.getItemAtPosition().toString()){
+
+
+        }
+*/
+        spiel.putExtra("Spieltyp" , "ad");
+
+        spiel.putExtra("spieler_1" , "ad");
+        spiel.putExtra("spieler_2" , "af");
+        spiel.putExtra("spieler_3" , "af");
+        spiel.putExtra("spieler_4" , "af");
+
+
+        startActivity(spiel);
+
+    }
+
+    public void Info() {
 
         startActivity(new Intent(this, Info_1.class));
 
     }
-
-
 
     public void login() {
 
@@ -121,14 +178,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         //verbinfung zu Fierbase aufbauen und dateneingabe üermitteln
 
+        // loginInputUserName können mit "loginInputUserName.getText().toString()" abgerufen werden
+        // loginUserInputPassword können mit "loginUserInputPassword.getText().toString()" abgerufen werden
+
     }
-    public User Test(String username, String password) {
 
-        User akivUser = new User();
-
-
-        return akivUser;
-    }
 
 
 
@@ -147,7 +201,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
         editor.putString("Key_1", isCheckBoxRememberMe);
         editor.commit();
-      //  String dad = loginInputUserName.getText().toString();
+
 
     }
     public void mReadSharedPreferences() {
