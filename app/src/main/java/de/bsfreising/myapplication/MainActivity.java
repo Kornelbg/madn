@@ -60,8 +60,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         userEmail = (TextInputEditText) findViewById(R.id.inputUserName);
         textViewCreateUser = (TextView) findViewById(R.id.textViewCreateUser);
 
-        buttonRegister.setOnClickListener(this);
-        textViewCreateUser.setOnClickListener(this);
+        //buttonRegister.setOnClickListener(this);
+      //  textViewCreateUser.setOnClickListener(this);
+
+
 
         startbildschirm();
     }
