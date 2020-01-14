@@ -16,9 +16,11 @@
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".AGBs" />
-        <activity android:name=".Spiel" />
+        <activity android:name=".Spiel"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"/>
         <activity android:name=".Info_1" />
-        <activity android:name=".CreatUser" />
+        <activity android:name=".CreatUser"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

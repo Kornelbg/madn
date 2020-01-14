@@ -19,17 +19,11 @@ public class Spielfeld extends Spiel{
     private int bildschirmBreiteMitte = 0;
     private int bildschirmHoeheMitte = 0;
 
-    public Spielfeld() {
+    public Spielfeld(int bildschirmBreiteMitte, int bildschirmHoeheMitte) {
 
+        this.bildschirmBreiteMitte = bildschirmBreiteMitte;
+        this.bildschirmHoeheMitte = bildschirmHoeheMitte;
 
-        display = getWindowManager().getDefaultDisplay();
-        size = new Point();
-        display.getSize(size);
-        bildschirmHoehe = size.y;
-        bildschirmBreite = size.x;
-
-        bildschirmHoeheMitte = bildschirmHoehe / 2;
-        bildschirmBreiteMitte = bildschirmBreite / 2;
 
 
         if (bildschirmBreiteMitte != 0 && bildschirmHoeheMitte != 0) { addFelder(); }
@@ -38,6 +32,14 @@ public class Spielfeld extends Spiel{
         }
     }
 
+
+    public int getBildschirmBreiteMitte() {
+        return this.bildschirmBreiteMitte;
+    }
+
+    public int getBildschirmHoeheMitte() {
+        return this.bildschirmHoeheMitte;
+    }
 
 
 

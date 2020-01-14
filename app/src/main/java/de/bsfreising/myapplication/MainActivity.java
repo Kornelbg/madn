@@ -69,7 +69,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println("neu !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
         super.onCreate(savedInstanceState);
         buttonRegister = (Button) findViewById(R.id.buttonUserInput);
@@ -139,8 +138,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         }
 
-        Display display1;
-        display1 = getWindowManager().getDefaultDisplay();
+
 
 
 
