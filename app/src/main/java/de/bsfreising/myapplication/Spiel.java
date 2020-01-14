@@ -52,7 +52,7 @@ public class Spiel extends AppCompatActivity {
 
     public void createSpiel(String[] spieler) {
 
-        CreateSpiel main = new CreateSpiel(spieler);
+          CreateSpiel main = new CreateSpiel(spieler);
 
     }
 

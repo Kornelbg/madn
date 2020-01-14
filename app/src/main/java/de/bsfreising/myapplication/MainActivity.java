@@ -5,8 +5,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -137,6 +139,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         }
 
+        Display display1;
+        display1 = getWindowManager().getDefaultDisplay();
+
+
 
         loginInputUserName = findViewById(R.id.loginInputUserName);
         loginUserInputPassword = findViewById(R.id.loginUserInputPassword);
@@ -190,13 +196,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         Intent spiel = new Intent(MainActivity.this, Spiel.class);
 
-/*        switch (spinnerGuestSpielerstellen_1.getItemAtPosition().toString()){
-
-
-        }
-*/
         spiel.putExtra("Spieltyp" , "ad");
-
         spiel.putExtra("spieler_1" , "USER");
         spiel.putExtra("spieler_2" , "BOOT");
         spiel.putExtra("spieler_3" , "SERVER");
@@ -204,6 +204,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
         startActivity(spiel);
+
+
 
     }
 

@@ -2,36 +2,60 @@ package de.bsfreising.myapplication;
 
 import android.widget.TextView;
 
+import com.google.api.SystemParameterOrBuilder;
+
 public class CreateSpiel extends  Spiel{
 
     public CreateSpiel(String[] spieler) {
           createSpieler(spieler);
-          createSpielfeld();
-          serFieguren();
+        //  createSpielfeld();
+          //serFieguren();
     }
 
-    public Spieler[] createSpieler(String[] spieler) {
+    public void createSpieler(String[] spieler) {
 
-        Spieler[] test = new Spieler[4];
+        Spieler[] test1 = new Spieler[4];
 
-        for (int i = 0; i < 4; i++) {
+
+        Spieler user_1 = new Spieler();
+        user_1.setSpielerTyp(1);
+    /*
+        test1[0].setSpielerTyp(1);
+
+        Spieler user_2 = new Spieler();
+        Spieler user_3 = new Spieler();
+        Spieler user_4 = new Spieler();
+
+        */
+
+      /*  for (int i = 0; i < 4; i++) {
 
             if(spieler[i].equals("USER")){
-                test[i].setSpielerTyp(1);
+                test1[i].setSpielerTyp(1);
                 //Spieler
             }
             else if(spieler[i].equals("BOOT")){
-                test[i].setSpielerTyp(2);
+                test1[i].setSpielerTyp(2);
                 //Boot
             }else if(spieler[i].equals("SERVER")) {
-                test[i].setSpielerTyp(3);
+                test1[i].setSpielerTyp(3);
                 // Server lifert daten
             }else {
-                test[i].setSpielerTyp(4);
+                test1[i].setSpielerTyp(4);
                 // nicht aktive
             }
-        }
-        return test; // muss noch duch das richtige Array ersetzt werden!
+
+        } */
+
+
+      String a = "";
+
+     /* for ( int i = 0; i < 4; i++ ){
+        a += spieler[i];
+      }
+      */
+        System.out.println("12345" + a);
+     //   return null; // muss noch duch das richtige Array ersetzt werden!
     }
 
     public Felder[] createSpielfeld() {

@@ -1,6 +1,6 @@
 package de.bsfreising.myapplication;
 
-public class Felder {
+public class Feld {
     private double id;
     private int x;
     private int y;
