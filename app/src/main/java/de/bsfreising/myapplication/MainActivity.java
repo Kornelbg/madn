@@ -47,6 +47,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             private TextInputEditText loginUserInputPassword;
 
 
+            private int welcheView = 0;
 
             //
             private String isCheckBoxRememberMe = "false";
@@ -66,6 +67,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("neu !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
         super.onCreate(savedInstanceState);
         buttonRegister = (Button) findViewById(R.id.buttonUserInput);
         userEmail = (TextInputEditText) findViewById(R.id.inputUserName);
@@ -107,6 +110,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             //playasguest Buttons
             case R.id.buttonPAGMainActivity:
+                welcheView = 0;
                 startbildschirm();
                 break;
             case R.id.buttoPAGnInfo:
@@ -125,7 +129,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void startbildschirm() {
         //setzen des aktiven Layouts
-        setContentView(R.layout.activity_main);
+        if(welcheView == 0) {
+            setContentView(R.layout.activity_main);
+        }else if( welcheView == 1) {
+            setContentView(R.layout.playasguest);
+        }else {
+
+        }
+
 
         loginInputUserName = findViewById(R.id.loginInputUserName);
         loginUserInputPassword = findViewById(R.id.loginUserInputPassword);
@@ -155,6 +166,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void alsGastSpielen() {
         //setzen des aktiven Layouts
         setContentView(R.layout.playasguest);
+        welcheView = 1;
+        
 
         buttonMainActivity = findViewById(R.id.buttonPAGMainActivity);
         buttoPAGnInfo = findViewById(R.id.buttoPAGnInfo);
@@ -184,10 +197,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 */
         spiel.putExtra("Spieltyp" , "ad");
 
-        spiel.putExtra("spieler_1" , "ad");
-        spiel.putExtra("spieler_2" , "af");
-        spiel.putExtra("spieler_3" , "af");
-        spiel.putExtra("spieler_4" , "af");
+        spiel.putExtra("spieler_1" , "USER");
+        spiel.putExtra("spieler_2" , "BOOT");
+        spiel.putExtra("spieler_3" , "SERVER");
+        spiel.putExtra("spieler_4" , "LEER");
 
 
         startActivity(spiel);

@@ -26,16 +26,17 @@ public class Spiel extends AppCompatActivity {
         setContentView(R.layout.activity_spiel);
         textViewUser = (TextView) findViewById(R.id.textViewUser);
 
-
+/*
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         if (firebaseAuth.getCurrentUser() == null)
         {
-            finish();
             startActivity(new Intent(this, MainActivity.class) );
+            finish();
+
         }
 
-        textViewUser.setText("Willkommen "+ user.getEmail());
+        textViewUser.setText("Willkommen "+ user.getEmail());*/
         Intent spiel = getIntent();
 
         String spieltyp = spiel.getStringExtra("Spieltyp");
@@ -46,40 +47,12 @@ public class Spiel extends AppCompatActivity {
                 spiel.getStringExtra("spieler_3"),
                 spiel.getStringExtra("spieler_4")};
 
-        createSpieler(spieler);
-
-
+        createSpiel(spieler);
     }
 
-    public void createSpielfeld() {
+    public void createSpiel(String[] spieler) {
 
-    }
-    public void createSpieler(String[] spieler) {
-
-
-
-
-        for (int i = 0; i < 4; i++) {
-
-            if(spieler[i].equals("USER")){
-                //Spieler
-            }
-            else if(spieler[i].equals("BOOT")){
-                //Boot
-            }else if(spieler[i].equals("SERVER")) {
-                // Server lifert daten
-            }else {
-                // nicht aktive
-            }
-
-        }
-
-
-
-
-    }
-
-    public void gameloop() {
+        CreateSpiel main = new CreateSpiel(spieler);
 
     }
 
