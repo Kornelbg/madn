@@ -27,7 +27,7 @@ public class Spiel extends AppCompatActivity {
     private TextView textViewUser;
 
     private ImageView spielfeld;
-    private FrameLayout spielbereich;
+    public FrameLayout spielbereich;
 
     private Display display;
     private Point size;
@@ -51,7 +51,7 @@ public class Spiel extends AppCompatActivity {
         textViewUser = (TextView) findViewById(R.id.textViewUser);
 /*
         Spieler        FirebaseUser user = firebaseAuth.getCurrentUser();
-        */
+
 
         if (firebaseAuth.getCurrentUser() == null)
         {
@@ -60,19 +60,12 @@ public class Spiel extends AppCompatActivity {
 
         }
 
+ */
+
         //textViewUser.setText("Willkommen "+ user.getEmail());
         Intent spiel = getIntent();
 
         String spieltyp = spiel.getStringExtra("Spieltyp");
-
-        String[] spieler = {
-                spiel.getStringExtra("spieler_1"),
-                spiel.getStringExtra("spieler_2"),
-                spiel.getStringExtra("spieler_3"),
-                spiel.getStringExtra("spieler_4")};
-
-        createSpiel(spieler);
-
 
         display = getWindowManager().getDefaultDisplay();
         size = new Point();
@@ -83,13 +76,26 @@ public class Spiel extends AppCompatActivity {
         bildschirmHoeheMitte = bildschirmHoehe / 2;
         bildschirmBreiteMitte = bildschirmBreite / 2;
 
+
+        spielbereich = findViewById(R.id.test);
+
+        String[] spieler = {
+                spiel.getStringExtra("spieler_1"),
+                spiel.getStringExtra("spieler_2"),
+                spiel.getStringExtra("spieler_3"),
+                spiel.getStringExtra("spieler_4")};
+
+        createSpiel(spieler);
+
+
+/*
         Spielfeld main = new Spielfeld(bildschirmBreiteMitte, bildschirmHoeheMitte, bildschirmHoehe);
 
 
 
         textViewUser.setText(main.getBildschirmBreiteMitte()+ "Mitte-Breite " + main.getBildschirmHoeheMitte() + "Höhe-Breite");
 
-       /* spielfeld = new ImageView(this);
+        spielfeld = new ImageView(this);
         spielfeld.setImageResource(R.drawable.spielfeld1);
 
 
@@ -107,7 +113,7 @@ public class Spiel extends AppCompatActivity {
 
     public void createSpiel(String[] spieler) {
 
-          CreateSpiel main = new CreateSpiel(spieler);
+          CreateSpiel main = new CreateSpiel(spieler, bildschirmBreiteMitte, bildschirmHoeheMitte, bildschirmHoehe);
 
     }
 

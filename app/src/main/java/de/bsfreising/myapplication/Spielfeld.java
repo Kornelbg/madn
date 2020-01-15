@@ -4,6 +4,7 @@ import android.graphics.Point;
 import android.view.Display;
 import android.view.Gravity;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 public class Spielfeld extends Spiel{
 
@@ -14,13 +15,16 @@ public class Spielfeld extends Spiel{
     private Display display;
     private Point size;
 
+    ImageView spielfeld;
 
     private int spielfeldMitteBreite = 0;
     private int spielfeldMitteHoehe = 0;
 
     private int spielfeldHoeheBreite;
 
-    private FrameLayout spielbereich;
+
+
+   // private FrameLayout spielbereich;
 
     private FrameLayout.LayoutParams parmscharakter;
 
@@ -35,7 +39,6 @@ public class Spielfeld extends Spiel{
         //setFelder();      --> Fekder-Arry muss noch behandelt werden
 
 
-        spielbereich.addView(spielbereich, parmscharakter);
 
     }
 
@@ -59,7 +62,7 @@ public class Spielfeld extends Spiel{
 
     private void setSpielfeld() {
 
-        spielbereich = findViewById(R.id.test);         // für den das Layout des Spielbereiches muss noch ein richtiger namen gefunden werden!  --> (!= test)
+        //spielbereich = findViewById(R.id.test);         // für den das Layout des Spielbereiches muss noch ein richtiger namen gefunden werden!  --> (!= test)
 
         parmscharakter = new FrameLayout.LayoutParams(spielfeldHoeheBreite , spielfeldHoeheBreite );
         parmscharakter.leftMargin = (spielfeldMitteBreite -((spielfeldHoeheBreite) /2));
