@@ -120,10 +120,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.buttonGuest_Spielen:
                 intentSpiel();
                 break;
-
-
-
-
         }
     }
 

@@ -1,13 +1,22 @@
 package de.bsfreising.myapplication;
 
 public class Feld {
+
+    public final int feldbesitzer;       // 0 == allen | 1 == Spieler 1 | 2 == Spieler 2 | ...
+
     private double id;
     private int x;
     private int y;
 
-    private String figur = null;
     private double figur_id = 0;
 
+    public Feld(int feldbesitzer) {
+
+        this.feldbesitzer = feldbesitzer;
+    }
+    public int getFeldbesitzer() {
+        return this.feldbesitzer;
+    }
     public void setId(double i) {
         id = i;
     }
@@ -29,16 +38,11 @@ public class Feld {
         return y;
     }
 
-    public void setFigur(String i) {
-        figur = i;
-    }
-    public String getFigur() {
-        return figur;
-    }
     public void setFigur_id(double i) {
         figur_id = i;
     }
     public double getFigur_id() {
         return figur_id;
     }
+
 }
