@@ -1,8 +1,6 @@
 package de.bsfreising.myapplication;
 
-import android.widget.TextView;
 
-import com.google.api.SystemParameterOrBuilder;
 
 public class CreateSpiel {
 
@@ -23,6 +21,7 @@ public class CreateSpiel {
 
     }
 
+
     private void setSpielfeld() {
         Spielfeld test = new Spielfeld(bildschirmBreiteMitte, bildschirmHoeheMitte, bildschirmHoehe);
     }
@@ -30,4 +29,6 @@ public class CreateSpiel {
     private void serFieguren() {
         // Spielstand überprüfen --> ...
     }
+
+
 }

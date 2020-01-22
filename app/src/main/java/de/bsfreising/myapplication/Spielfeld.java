@@ -15,7 +15,7 @@ public class Spielfeld extends Spiel{
     private Display display;
     private Point size;
 
-    ImageView spielfeld;
+    private ImageView spielfeld;
 
     private int spielfeldMitteBreite = 0;
     private int spielfeldMitteHoehe = 0;
@@ -35,7 +35,7 @@ public class Spielfeld extends Spiel{
 
         this.spielfeldHoeheBreite = (int)(spielfeldMitteHoehe * 0.95);
 
-        setSpielfeld();
+       // setSpielfeld();
         //setFelder();      --> Fekder-Arry muss noch behandelt werden
 
 
@@ -62,15 +62,17 @@ public class Spielfeld extends Spiel{
 
     private void setSpielfeld() {
 
-        //spielbereich = findViewById(R.id.test);         // für den das Layout des Spielbereiches muss noch ein richtiger namen gefunden werden!  --> (!= test)
-
-        parmscharakter = new FrameLayout.LayoutParams(spielfeldHoeheBreite , spielfeldHoeheBreite );
-        parmscharakter.leftMargin = (spielfeldMitteBreite -((spielfeldHoeheBreite) /2));
-        parmscharakter.bottomMargin = (spielfeldMitteHoehe -((spielfeldHoeheBreite) /2)) ;
-        parmscharakter.gravity = Gravity.BOTTOM + Gravity.LEFT;
-
-        // spielbereich.addView(spielbereich, parmscharakter);          // erst nach den Fertigstellen puschen
     }
+
+    public FrameLayout.LayoutParams setSpielfeld_1() {
+
+        return this.parmscharakter;
+    }
+
+
+    // das Array spielfelder soll von 0 auf mit dem Allgemeinen Feldern und den Sicheren Feldern aufgefüllt werden.
+    // --> es wird mit dem ersten Sicheren Feld gestartet
+    // die anderen Felder folgen danach
 
     private void setFelder() {
 
@@ -80,6 +82,8 @@ public class Spielfeld extends Spiel{
         for(int sf = 0; sf < 4; sf++ ){         // sf == Spielerfelder
 
             spieler++; // erster Spieler beginnt mit 1
+
+
 
             int felderSpieler = 0; // Felder Spieler beginnt mit 1
 
@@ -91,12 +95,22 @@ public class Spielfeld extends Spiel{
             }
 
         }
+
+        int besitzer;
+        int sicheresfeldZaehler;
+
         for(int af1 = 0; af1 < 4; af1++) {       // af == AllgemeineFelder --> erste Schleife
 
                 zaehlerASF++; // erstes Feld beginnt mit 1
 
-            int besitzer = af1 + 1;
-            int sicheresfeldZaehler = af1 * 10 + 1;
+            // beispiel muss noch mit Variablen gefüllt werden
+            spielfelder[0] = new AllgemeinesFeld(0);
+            spielfelder[0].setId(0.11);
+            spielfelder[0].setX(spielfeldMitteBreite -(((int) spielfeldMitteHoehe) /2) + 25);
+            spielfelder[0].setY(spielfeldMitteHoehe -(((int) spielfeldMitteHoehe) /2) + 25 );
+
+             besitzer = af1 + 1;
+             sicheresfeldZaehler = af1 * 10 + 1;
 
             spielfelder[sicheresfeldZaehler] = new Sicheresfeld(besitzer);
             // pos usw muss noch gesetzt werden

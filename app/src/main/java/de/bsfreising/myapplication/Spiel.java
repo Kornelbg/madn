@@ -23,7 +23,8 @@ import java.lang.reflect.Array;
 
 public class Spiel extends AppCompatActivity {
 
-    FirebaseAuth firebaseAuth;
+
+    FirebaseAuth firebaseA1uth;
     private TextView textViewUser;
 
     private ImageView spielfeld;
@@ -32,11 +33,11 @@ public class Spiel extends AppCompatActivity {
     private Display display;
     private Point size;
 
-    private int bildschirmBreite;
-    private int bildschirmHoehe;
+    public int bildschirmBreite;
+    public int bildschirmHoehe;
 
-    private int bildschirmBreiteMitte = 0;
-    private int bildschirmHoeheMitte = 0;
+    public int bildschirmBreiteMitte = 0;
+    public int bildschirmHoeheMitte = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,22 @@ public class Spiel extends AppCompatActivity {
 
         String spieltyp = spiel.getStringExtra("Spieltyp");
 
+
+
+
+       // spielbereich = findViewById(R.id.test);
+
+        String[] spieler = {
+                spiel.getStringExtra("spieler_1"),
+                spiel.getStringExtra("spieler_2"),
+                spiel.getStringExtra("spieler_3"),
+                spiel.getStringExtra("spieler_4")};
+
+        createSpiel(spieler);
+    }
+
+    public void createSpiel(String[] spieler) {
+
         display = getWindowManager().getDefaultDisplay();
         size = new Point();
         display.getSize(size);
@@ -77,28 +94,8 @@ public class Spiel extends AppCompatActivity {
         bildschirmBreiteMitte = bildschirmBreite / 2;
 
 
-        spielbereich = findViewById(R.id.test);
-
-        String[] spieler = {
-                spiel.getStringExtra("spieler_1"),
-                spiel.getStringExtra("spieler_2"),
-                spiel.getStringExtra("spieler_3"),
-                spiel.getStringExtra("spieler_4")};
-
-        createSpiel(spieler);
-
-
-/*
-        Spielfeld main = new Spielfeld(bildschirmBreiteMitte, bildschirmHoeheMitte, bildschirmHoehe);
-
-
-
-        textViewUser.setText(main.getBildschirmBreiteMitte()+ "Mitte-Breite " + main.getBildschirmHoeheMitte() + "Höhe-Breite");
-
         spielfeld = new ImageView(this);
         spielfeld.setImageResource(R.drawable.spielfeld1);
-
-
         spielbereich = findViewById(R.id.test);
 
         FrameLayout.LayoutParams parmscharakter = new FrameLayout.LayoutParams((int) (bildschirmHoehe * 0.95),  (int)(bildschirmHoehe * 0.95) );
@@ -107,15 +104,10 @@ public class Spiel extends AppCompatActivity {
         parmscharakter.gravity = Gravity.BOTTOM + Gravity.LEFT;
         spielbereich.addView(spielfeld, parmscharakter);
 
-        */
+        CreateSpiel main = new CreateSpiel(spieler, bildschirmBreiteMitte, bildschirmHoeheMitte, bildschirmHoehe);
 
     }
 
-    public void createSpiel(String[] spieler) {
-
-          CreateSpiel main = new CreateSpiel(spieler, bildschirmBreiteMitte, bildschirmHoeheMitte, bildschirmHoehe);
-
-    }
 
     private void   mSaveSharedPreferencesSpielSPeichern() {
 

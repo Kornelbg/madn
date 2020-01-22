@@ -188,6 +188,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void intentSpiel() {
 
+
+        // muss angepasst werden!
+
+
         Intent spiel = new Intent(MainActivity.this, Spiel.class);
 
         spiel.putExtra("Spieltyp" , "ad");
@@ -205,7 +209,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     public void Info() {
 
-        startActivity(new Intent(this, Info_1.class));
+        startActivity(new Intent(this, Info_1.class));           // muss angepasst wernden --> "info_1"
 
     }
 
@@ -227,7 +231,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             Toast.makeText(this, "Bitte Password eingeben", Toast.LENGTH_SHORT).show();
             return;
         }
-
+        
         progressDialog.setMessage("Anmeldung läuft");
         progressDialog.show();
 
