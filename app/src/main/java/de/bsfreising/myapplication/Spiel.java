@@ -33,11 +33,16 @@ public class Spiel extends AppCompatActivity {
     private Display display;
     private Point size;
 
-    public int bildschirmBreite;
-    public int bildschirmHoehe;
+    public int bildschirmBreite = 0;
+    public int bildschirmHoehe = 0;
+
+    public int SpielfeldHoeheBreite = 0;
+    public int rSPielfeldHoeheBreite = 0;
 
     public int bildschirmBreiteMitte = 0;
     public int bildschirmHoeheMitte = 0;
+
+    private ImageView feld;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,27 +90,63 @@ public class Spiel extends AppCompatActivity {
     public void createSpiel(String[] spieler) {
 
         display = getWindowManager().getDefaultDisplay();
-        size = new Point();
+       size = new Point();
         display.getSize(size);
         bildschirmHoehe = size.y;
         bildschirmBreite = size.x;
 
         bildschirmHoeheMitte = bildschirmHoehe / 2;
-        bildschirmBreiteMitte = bildschirmBreite / 2;
+
+        SpielfeldHoeheBreite = (int)(bildschirmHoehe * 0.95);
+        rSPielfeldHoeheBreite = (int)(bildschirmHoehe * 0.95 / 2);
+
+
 
 
         spielfeld = new ImageView(this);
         spielfeld.setImageResource(R.drawable.spielfeld1);
         spielbereich = findViewById(R.id.test);
 
-        FrameLayout.LayoutParams parmscharakter = new FrameLayout.LayoutParams((int) (bildschirmHoehe * 0.95),  (int)(bildschirmHoehe * 0.95) );
-        parmscharakter.leftMargin = (bildschirmBreiteMitte -(((int) (bildschirmHoehe * 0.95)) /2));
-        parmscharakter.bottomMargin = (bildschirmHoeheMitte -(((int) (bildschirmHoehe * 0.95)) /2)) ;
+        FrameLayout.LayoutParams parmscharakter = new FrameLayout.LayoutParams(SpielfeldHoeheBreite,  SpielfeldHoeheBreite);
+        parmscharakter.leftMargin = (bildschirmBreiteMitte + rSPielfeldHoeheBreite);
+        parmscharakter.bottomMargin = (bildschirmHoeheMitte - rSPielfeldHoeheBreite) ;
         parmscharakter.gravity = Gravity.BOTTOM + Gravity.LEFT;
         spielbereich.addView(spielfeld, parmscharakter);
 
-        CreateSpiel main = new CreateSpiel(spieler, bildschirmBreiteMitte, bildschirmHoeheMitte, bildschirmHoehe);
 
+        CreateSpiel main = new CreateSpiel(spieler, bildschirmBreiteMitte, bildschirmHoeheMitte, SpielfeldHoeheBreite);
+
+        feld = new ImageView(this);
+
+        // muss noch errechnet werden
+        FrameLayout.LayoutParams feldParams = new FrameLayout.LayoutParams(25, 25);
+
+        for(int i = 0; i < 76; i++) {
+
+            int x = main.getFelder(i).getX();
+            int y = main.getFelder(i).getY();
+
+            switch (main.getFeldbesitzer(i)) {
+                case 0 : feld.setImageResource(R.drawable.feld);
+                    break;
+                case 1: feld.setImageResource(R.drawable.blau);
+                    break;
+                case 2: feld.setImageResource(R.drawable.gelb);
+                    break;
+                case 3: feld.setImageResource(R.drawable.gruen);
+                    break;
+                case 4: feld.setImageResource(R.drawable.orange);
+                    break;
+            }
+
+            feldParams.leftMargin = (x);
+            feldParams.bottomMargin = (y) ;
+            feldParams.gravity = Gravity.BOTTOM + Gravity.LEFT;
+            spielbereich.addView(feld, feldParams);
+
+            feld = null;
+            feldParams = null;
+        }
     }
 
 

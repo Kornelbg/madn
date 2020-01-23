@@ -10,6 +10,8 @@ public class Feld {
 
     private double figur_id = 0;
 
+
+
     public Feld(int feldbesitzer) {
 
         this.feldbesitzer = feldbesitzer;

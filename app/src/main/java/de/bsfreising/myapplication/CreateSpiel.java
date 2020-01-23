@@ -7,6 +7,7 @@ public class CreateSpiel {
     private int  bildschirmBreiteMitte;
     private int bildschirmHoeheMitte;
     private int bildschirmHoehe;
+    private Spielfeld spielfeld_1;
 
     public CreateSpiel(String[] spieler, int bildschirmBreiteMitte, int bildschirmHoeheMitte, int bildschirmHoehe) {
         this.bildschirmBreiteMitte = bildschirmBreiteMitte;
@@ -23,10 +24,20 @@ public class CreateSpiel {
 
 
     private void setSpielfeld() {
-        Spielfeld test = new Spielfeld(bildschirmBreiteMitte, bildschirmHoeheMitte, bildschirmHoehe);
+        spielfeld_1 = new Spielfeld(bildschirmBreiteMitte, bildschirmHoeheMitte, bildschirmHoehe);
     }
 
-    private void serFieguren() {
+    public Feld getFelder(int i) {
+
+       return spielfeld_1.getFelder(i);
+    }
+
+    public int getFeldbesitzer(int i) {
+        return spielfeld_1.getFeldbesitzer(i);
+    }
+
+
+        private void serFieguren() {
         // Spielstand überprüfen --> ...
     }
 
