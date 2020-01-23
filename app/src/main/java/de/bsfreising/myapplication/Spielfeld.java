@@ -10,7 +10,7 @@ public class Spielfeld {
 
     // es wird noch ene Mehode für das umsetzen und überprüfen benötigt
 
-    private Feld[] spielfelder = new Feld[76];
+    private Feld[] spielfelder = new Feld[72];
 
     private Display display;
     private Point size;
@@ -35,7 +35,7 @@ public class Spielfeld {
         this.spielfeldHoeheBreite = spielfeldMitteHoehe;
 
        // setSpielfeld();
-        //setFelder();      --> Fekder-Arry muss noch behandelt werden
+        setFelder();
 
 
 
@@ -75,6 +75,7 @@ public class Spielfeld {
     // die anderen Felder folgen danach
 
     private void setFelder() {
+        int arrayZaehler = 0;
         int besitzer;
         int sicheresfeldZaehler;
 
@@ -85,65 +86,50 @@ public class Spielfeld {
         for(int af1 = 0; af1 < 4; af1++) {       // af == AllgemeineFelder --> erste Schleife
 
             sicheresfeldZaehler = af1 * 10 + 1;
-            zaehlerASF++; // erstes Feld beginnt mit 1
 
-            // beispiel muss noch mit Variablen gefüllt werden
-            spielfelder[zaehlerASF] = new AllgemeinesFeld(0);
-            spielfelder[zaehlerASF].setId(af1);
-            spielfelder[zaehlerASF].setX(spielfeldMitteBreite -(spielfeldHoeheBreite / 6 * 5));
-            spielfelder[zaehlerASF].setY(spielfeldMitteHoehe +(spielfeldHoeheBreite / 6 * 1));
-
+            spielfelder[arrayZaehler] = new Sicheresfeld(af1);
+            spielfelder[arrayZaehler].setId(arrayZaehler);
+            spielfelder[arrayZaehler].setX(spielfeldMitteBreite);
+            spielfelder[arrayZaehler].setY(spielfeldMitteHoehe );
+            arrayZaehler++;
             besitzer = af1 + 1;
             sicheresfeldZaehler = af1 * 10 + 1;
 
-            spielfelder[sicheresfeldZaehler] = new Sicheresfeld(besitzer);
-            // pos usw muss noch gesetzt werden
-
-            // Sicherfelder ersellen
-
             // Variable muss um eins hochgezählt werden --> sichere Felder
 
-            for(int af2 = 0; af2 < 10; af2++ ) {
-                spielfelder[zaehlerASF] = new AllgemeinesFeld(0);
-                spielfelder[zaehlerASF].setId(af1);
-                spielfelder[zaehlerASF].setX(spielfeldMitteBreite -(spielfeldHoeheBreite / 6 * 5));
-                spielfelder[zaehlerASF].setY(spielfeldMitteHoehe +(spielfeldHoeheBreite / 6 * 1));
-                zaehlerASF++;
-
-                // hier werden die einzelenen Felder erstellt
-            }
-
+            for(int af2 = 0; af2 < 9; af2++ ) {
+                spielfelder[arrayZaehler] = new AllgemeinesFeld(0);
+                spielfelder[arrayZaehler].setId(arrayZaehler);
+                spielfelder[arrayZaehler].setX(spielfeldMitteBreite +25 );
+                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe);
+                arrayZaehler++;
+                }
+}
         for(int sf = 0; sf < 4; sf++ ){         // sf == Spielerfelder
 
-            spielfelder[zaehlerASF] = new AllgemeinesFeld(0);
-            spielfelder[zaehlerASF].setId(af1);
-            spielfelder[zaehlerASF].setX(spielfeldMitteBreite -(spielfeldHoeheBreite / 6 * 5));
-            spielfelder[zaehlerASF].setY(spielfeldMitteHoehe +(spielfeldHoeheBreite / 6 * 1));
-
-            spieler++; // erster Spieler beginnt mit 1
-
-
-
+            // erster Spieler beginnt mit 1
             int felderSpieler = 0; // Felder Spieler beginnt mit 1
 
             for(int bf = 0; bf < 4; bf++) {     // bf == Basisfelder
-                spielfelder[zaehlerASF] = new AllgemeinesFeld(0);
-                spielfelder[zaehlerASF].setId(af1);
-                spielfelder[zaehlerASF].setX(spielfeldMitteBreite -(spielfeldHoeheBreite / 6 * 5));
-                spielfelder[zaehlerASF].setY(spielfeldMitteHoehe +(spielfeldHoeheBreite / 6 * 1));
-
+                spielfelder[arrayZaehler] = new Basisfeld (sf);
+                spielfelder[arrayZaehler].setId(arrayZaehler);
+                spielfelder[arrayZaehler].setX(spielfeldMitteBreite- 25);
+                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + 25 );
+                arrayZaehler++;
                 felderSpieler++;
             }
             for(int ef = 0; ef < 4; ef++) {     // ef == Endfelder
-                spielfelder[zaehlerASF] = new AllgemeinesFeld(0);
-                spielfelder[zaehlerASF].setId(af1);
-                spielfelder[zaehlerASF].setX(spielfeldMitteBreite -(spielfeldHoeheBreite / 6 * 5));
-                spielfelder[zaehlerASF].setY(spielfeldMitteHoehe +(spielfeldHoeheBreite / 6 * 1));
-
+                spielfelder[arrayZaehler] = new Endfeld(sf);
+                spielfelder[arrayZaehler].setId(arrayZaehler);
+                spielfelder[arrayZaehler].setX(spielfeldMitteBreite -25);
+                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe -25);
+                arrayZaehler++;
                 felderSpieler++;
             }
 
-            }
+
         }
+
+
     }
 }

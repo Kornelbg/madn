@@ -96,6 +96,7 @@ public class Spiel extends AppCompatActivity {
         bildschirmBreite = size.x;
 
         bildschirmHoeheMitte = bildschirmHoehe / 2;
+        bildschirmBreiteMitte = bildschirmBreite / 2;
 
         SpielfeldHoeheBreite = (int)(bildschirmHoehe * 0.95);
         rSPielfeldHoeheBreite = (int)(bildschirmHoehe * 0.95 / 2);
@@ -108,7 +109,7 @@ public class Spiel extends AppCompatActivity {
         spielbereich = findViewById(R.id.test);
 
         FrameLayout.LayoutParams parmscharakter = new FrameLayout.LayoutParams(SpielfeldHoeheBreite,  SpielfeldHoeheBreite);
-        parmscharakter.leftMargin = (bildschirmBreiteMitte + rSPielfeldHoeheBreite);
+        parmscharakter.leftMargin = (bildschirmBreiteMitte - rSPielfeldHoeheBreite);
         parmscharakter.bottomMargin = (bildschirmHoeheMitte - rSPielfeldHoeheBreite) ;
         parmscharakter.gravity = Gravity.BOTTOM + Gravity.LEFT;
         spielbereich.addView(spielfeld, parmscharakter);
@@ -116,15 +117,21 @@ public class Spiel extends AppCompatActivity {
 
         CreateSpiel main = new CreateSpiel(spieler, bildschirmBreiteMitte, bildschirmHoeheMitte, SpielfeldHoeheBreite);
 
-        feld = new ImageView(this);
+
+
 
         // muss noch errechnet werden
-        FrameLayout.LayoutParams feldParams = new FrameLayout.LayoutParams(25, 25);
 
-        for(int i = 0; i < 76; i++) {
+        for(int i = 0; i < 72; i++) {
 
-            int x = main.getFelder(i).getX();
-            int y = main.getFelder(i).getY();
+            //Feld aa = new Feld(1);
+            // aa = main.getFelder(i);
+            //int x = aa.getFeldbesitzer();
+
+          int x = main.getFelder(i).getX();
+          int y = main.getFelder(i).getY();
+
+            feld = new ImageView(this);
 
             switch (main.getFeldbesitzer(i)) {
                 case 0 : feld.setImageResource(R.drawable.feld);
@@ -139,14 +146,26 @@ public class Spiel extends AppCompatActivity {
                     break;
             }
 
+            //feld.setImageResource(R.drawable.gruen);
+            FrameLayout.LayoutParams feldParams = new FrameLayout.LayoutParams((int) (SpielfeldHoeheBreite / 16.5), (int) (SpielfeldHoeheBreite/16.5));
+
             feldParams.leftMargin = (x);
             feldParams.bottomMargin = (y) ;
             feldParams.gravity = Gravity.BOTTOM + Gravity.LEFT;
-            spielbereich.addView(feld, feldParams);
 
+            System.out.println(x + "  " + y + "Test12335" + "   "+ main.getFeldbesitzer(i) + " ");
+
+            spielbereich.addView(feld, feldParams);
+/*
             feld = null;
             feldParams = null;
+
+            */
+
+
         }
+
+
     }
 
 
