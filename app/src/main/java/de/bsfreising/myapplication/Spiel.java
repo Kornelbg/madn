@@ -33,16 +33,21 @@ public class Spiel extends AppCompatActivity {
     private Display display;
     private Point size;
 
-    public int bildschirmBreite = 0;
-    public int bildschirmHoehe = 0;
+    private int bildschirmBreite = 0;
+    private int bildschirmHoehe = 0;
 
-    public int SpielfeldHoeheBreite = 0;
-    public int rSPielfeldHoeheBreite = 0;
+    private int SpielfeldHoeheBreite = 0;
+    private int rSPielfeldHoeheBreite = 0;
 
-    public int bildschirmBreiteMitte = 0;
-    public int bildschirmHoeheMitte = 0;
+    private int bildschirmBreiteMitte = 0;
+    private int bildschirmHoeheMitte = 0;
+
+    private String[][] spieler;
+    private Spieler[] neueSpieler;
 
     private ImageView feld;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +57,13 @@ public class Spiel extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        Intent spiel = getIntent();
+        String[][] spieler = { {spiel.getStringExtra("spieler_1T")},{spiel.getStringExtra("spieler_1N")},
+                {spiel.getStringExtra("spieler_2T")},{spiel.getStringExtra("spieler_2N")},
+                {spiel.getStringExtra("spieler_3T")},{spiel.getStringExtra("spieler_3N")},
+                {spiel.getStringExtra("spieler_4T")},{spiel.getStringExtra("spieler_4N")},};
+        this.spieler = spieler;
 
-
-        textViewUser = (TextView) findViewById(R.id.textViewUser);
 /*
         Spieler        FirebaseUser user = firebaseAuth.getCurrentUser();
 
@@ -68,29 +77,36 @@ public class Spiel extends AppCompatActivity {
 
  */
 
-        //textViewUser.setText("Willkommen "+ user.getEmail());
-        Intent spiel = getIntent();
-
-        String spieltyp = spiel.getStringExtra("Spieltyp");
-
-
-
-
-       // spielbereich = findViewById(R.id.test);
-
-        String[] spieler = {
-                spiel.getStringExtra("spieler_1"),
-                spiel.getStringExtra("spieler_2"),
-                spiel.getStringExtra("spieler_3"),
-                spiel.getStringExtra("spieler_4")};
-
-        createSpiel(spieler);
+        textViewUser = (TextView) findViewById(R.id.textViewUser);
+        createSpielfeld();
     }
 
-    public void createSpiel(String[] spieler) {
+    private void createSpielfeld() {
+        setSpielfeld();
+        createSpiel();
+    }
+    private void addSpieler() {
+        for(int i = 0; i < 4; i++) {
+           String name =  spieler[i][1];
+
+            switch (spieler[i][0]) {
+                case "LEER": neueSpieler[i] = new Spieler(name, 0, i);
+                    break;
+                case "USER": neueSpieler[i] = new Spieler(name, 0, i);
+                    break;
+                case "BOOT": neueSpieler[i] = new Spieler(name, 0, i);
+                    break;
+                case "SERVER": neueSpieler[i] = new Spieler(name, 0, i);
+                    break;
+            }
+
+        }
+    }
+
+    private void setSpielfeld() {
 
         display = getWindowManager().getDefaultDisplay();
-       size = new Point();
+        size = new Point();
         display.getSize(size);
         bildschirmHoehe = size.y;
         bildschirmBreite = size.x;
@@ -101,9 +117,6 @@ public class Spiel extends AppCompatActivity {
         SpielfeldHoeheBreite = (int)(bildschirmHoehe * 0.95);
         rSPielfeldHoeheBreite = (int)(bildschirmHoehe * 0.95 / 2);
 
-
-
-
         spielfeld = new ImageView(this);
         spielfeld.setImageResource(R.drawable.spielfeld1);
         spielbereich = findViewById(R.id.test);
@@ -113,21 +126,12 @@ public class Spiel extends AppCompatActivity {
         parmscharakter.bottomMargin = (bildschirmHoeheMitte - rSPielfeldHoeheBreite) ;
         parmscharakter.gravity = Gravity.BOTTOM + Gravity.LEFT;
         spielbereich.addView(spielfeld, parmscharakter);
+    }
+    private void createSpiel() {
 
-
-        CreateSpiel main = new CreateSpiel(spieler, bildschirmBreiteMitte, bildschirmHoeheMitte, SpielfeldHoeheBreite);
-
-
-
-
-        // muss noch errechnet werden
+        CreateSpiel main = new CreateSpiel(spieler, bildschirmBreiteMitte, bildschirmHoeheMitte, rSPielfeldHoeheBreite);
 
         for(int i = 0; i < 72; i++) {
-
-            //Feld aa = new Feld(1);
-            // aa = main.getFelder(i);
-            //int x = aa.getFeldbesitzer();
-
           int x = main.getFelder(i).getX();
           int y = main.getFelder(i).getY();
 
@@ -145,30 +149,22 @@ public class Spiel extends AppCompatActivity {
                 case 4: feld.setImageResource(R.drawable.orange);
                     break;
             }
-
-            //feld.setImageResource(R.drawable.gruen);
             FrameLayout.LayoutParams feldParams = new FrameLayout.LayoutParams((int) (SpielfeldHoeheBreite / 16.5), (int) (SpielfeldHoeheBreite/16.5));
 
             feldParams.leftMargin = (x);
             feldParams.bottomMargin = (y) ;
             feldParams.gravity = Gravity.BOTTOM + Gravity.LEFT;
 
-            System.out.println(x + "  " + y + "Test12335" + "   "+ main.getFeldbesitzer(i) + " ");
-
             spielbereich.addView(feld, feldParams);
-/*
-            feld = null;
-            feldParams = null;
+        }
+    }
+    private void gameloop() {
 
-            */
-
+        // muss noch mit boolean variable gefüllt werden
+        while (true) {
 
         }
-
-
     }
-
-
     private void   mSaveSharedPreferencesSpielSPeichern() {
 
         // zwischenspeichern falls das Spiel vor beändigung verlassen wird

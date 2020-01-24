@@ -17,8 +17,8 @@ public class Spielfeld {
 
     private ImageView spielfeld;
 
-    private int spielfeldMitteBreite = 0;
-    private int spielfeldMitteHoehe = 0;
+    private int spielfeldMitteBreite;
+    private int spielfeldMitteHoehe;
 
     private int spielfeldHoeheBreite;
 
@@ -27,15 +27,16 @@ public class Spielfeld {
    // private FrameLayout spielbereich;
     private FrameLayout.LayoutParams parmscharakter;
 
-    public Spielfeld(int bildschirmBreiteMitte, int bildschirmHoeheMitte, int spielfeldMitteHoehe) {
+    public Spielfeld(int spielfeldMitteBreite, int bildschirmMitteHoehe, int spielfeldHoeheBreite) {
 
-        this.spielfeldMitteBreite = bildschirmBreiteMitte;
-        this.spielfeldMitteHoehe = bildschirmHoeheMitte;
+        this.spielfeldMitteBreite = spielfeldMitteBreite;
+        this.spielfeldMitteHoehe = bildschirmMitteHoehe;
 
-        this.spielfeldHoeheBreite = spielfeldMitteHoehe;
+        this.spielfeldHoeheBreite = spielfeldHoeheBreite;
 
        // setSpielfeld();
         setFelder();
+        setXundY();
 
 
 
@@ -83,14 +84,14 @@ public class Spielfeld {
         int zaehlerASF = 0; // zahl die Allgemeinen und sicheren Felder
         int spieler = 0;
 
+
+
         for(int af1 = 0; af1 < 4; af1++) {       // af == AllgemeineFelder --> erste Schleife
 
             sicheresfeldZaehler = af1 * 10 + 1;
 
-            spielfelder[arrayZaehler] = new Sicheresfeld(af1);
+            spielfelder[arrayZaehler] = new Sicheresfeld(af1 + 1);
             spielfelder[arrayZaehler].setId(arrayZaehler);
-            spielfelder[arrayZaehler].setX(spielfeldMitteBreite);
-            spielfelder[arrayZaehler].setY(spielfeldMitteHoehe );
             arrayZaehler++;
             besitzer = af1 + 1;
             sicheresfeldZaehler = af1 * 10 + 1;
@@ -98,11 +99,11 @@ public class Spielfeld {
             // Variable muss um eins hochgezählt werden --> sichere Felder
 
             for(int af2 = 0; af2 < 9; af2++ ) {
+
                 spielfelder[arrayZaehler] = new AllgemeinesFeld(0);
                 spielfelder[arrayZaehler].setId(arrayZaehler);
-                spielfelder[arrayZaehler].setX(spielfeldMitteBreite +25 );
-                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe);
                 arrayZaehler++;
+
                 }
 }
         for(int sf = 0; sf < 4; sf++ ){         // sf == Spielerfelder
@@ -111,18 +112,14 @@ public class Spielfeld {
             int felderSpieler = 0; // Felder Spieler beginnt mit 1
 
             for(int bf = 0; bf < 4; bf++) {     // bf == Basisfelder
-                spielfelder[arrayZaehler] = new Basisfeld (sf);
+                spielfelder[arrayZaehler] = new Basisfeld (sf+1);
                 spielfelder[arrayZaehler].setId(arrayZaehler);
-                spielfelder[arrayZaehler].setX(spielfeldMitteBreite- 25);
-                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + 25 );
                 arrayZaehler++;
                 felderSpieler++;
             }
             for(int ef = 0; ef < 4; ef++) {     // ef == Endfelder
-                spielfelder[arrayZaehler] = new Endfeld(sf);
+                spielfelder[arrayZaehler] = new Endfeld(sf+1);
                 spielfelder[arrayZaehler].setId(arrayZaehler);
-                spielfelder[arrayZaehler].setX(spielfeldMitteBreite -25);
-                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe -25);
                 arrayZaehler++;
                 felderSpieler++;
             }
@@ -131,5 +128,216 @@ public class Spielfeld {
         }
 
 
+    }
+
+    public void setXundY() {
+        int arrayZaehler = 0;
+
+        int pointSFX = (int)(-(spielfeldHoeheBreite / 6 * 5 + spielfeldHoeheBreite / 16.5));
+        int pointSFY = (int)(+(spielfeldHoeheBreite / 6 * 1 - spielfeldHoeheBreite / 16.5));
+
+        //for(int ia = 0; ia < 4; ia++ ) {
+            for(int i = 0; i < 4; i++) {
+
+                spielfelder[arrayZaehler].setX(spielfeldMitteBreite + pointSFX);
+                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + pointSFY);
+                pointSFX += (spielfeldHoeheBreite / 6 * 1);
+                arrayZaehler++;
+            }
+            for(int ic = 0; ic < 4; ic++ ) {
+                spielfelder[arrayZaehler].setX(spielfeldMitteBreite + pointSFX);
+                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + pointSFY);
+                pointSFY += (spielfeldHoeheBreite / 6 * 1);
+                arrayZaehler++;
+            }
+            for(int i = 0; i < 2; i++) {
+                spielfelder[arrayZaehler].setX(spielfeldMitteBreite + pointSFX);
+                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + pointSFY);
+                pointSFX += (spielfeldHoeheBreite / 6 * 1);
+                arrayZaehler++;
+            }
+            for(int i = 0; i < 4; i++) {
+
+                spielfelder[arrayZaehler].setX(spielfeldMitteBreite + pointSFX);
+                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + pointSFY);
+                pointSFY += -(spielfeldHoeheBreite / 6 * 1);
+                arrayZaehler++;
+            }
+            for(int i = 0; i < 4; i++ ) {
+                spielfelder[arrayZaehler].setX(spielfeldMitteBreite + pointSFX);
+                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + pointSFY);
+                pointSFX += +(spielfeldHoeheBreite / 6 * 1);
+                arrayZaehler++;
+            }
+            for(int i = 0; i < 2; i++) {
+                spielfelder[arrayZaehler].setX(spielfeldMitteBreite + pointSFX);
+                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + pointSFY);
+                pointSFY += -(spielfeldHoeheBreite / 6 * 1);
+                arrayZaehler++;
+            }
+            for(int i = 0; i < 4; i++) {
+
+                spielfelder[arrayZaehler].setX(spielfeldMitteBreite + pointSFX);
+                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + pointSFY);
+                pointSFX += -(spielfeldHoeheBreite / 6 * 1);
+                arrayZaehler++;
+            }
+            for(int i = 0; i < 4; i++ ) {
+                spielfelder[arrayZaehler].setX(spielfeldMitteBreite + pointSFX);
+                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + pointSFY);
+                pointSFY += -(spielfeldHoeheBreite / 6 * 1);
+                arrayZaehler++;
+            }
+            for(int i = 0; i < 2; i++) {
+                spielfelder[arrayZaehler].setX(spielfeldMitteBreite + pointSFX);
+                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + pointSFY);
+                pointSFX += -(spielfeldHoeheBreite / 6 * 1);
+                arrayZaehler++;
+            }
+            for(int i = 0; i < 4; i++) {
+
+                spielfelder[arrayZaehler].setX(spielfeldMitteBreite + pointSFX);
+                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + pointSFY);
+                pointSFY += +(spielfeldHoeheBreite / 6 * 1);
+                arrayZaehler++;
+            }
+            for(int i = 0; i < 4; i++ ) {
+                spielfelder[arrayZaehler].setX(spielfeldMitteBreite + pointSFX);
+                spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + pointSFY);
+                pointSFX += -(spielfeldHoeheBreite / 6 * 1);
+                arrayZaehler++;
+            }
+        for(int i = 0; i < 2; i++) {
+            spielfelder[arrayZaehler].setX(spielfeldMitteBreite + pointSFX);
+            spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + pointSFY);
+            pointSFY += +(spielfeldHoeheBreite / 6 * 1);
+            arrayZaehler++;
+        }
+
+
+        int x = 0;
+        int y = 0;
+        for(int i = 0; i < 4; i++) {
+            if(i == 0) {
+                x = (int) (-(spielfeldHoeheBreite / 6 * 5 + spielfeldHoeheBreite / 16.5));
+                y = (int) (+(spielfeldHoeheBreite / 6 * 5 - spielfeldHoeheBreite / 16.5));
+            }
+
+            spielfelder[arrayZaehler].setX(spielfeldMitteBreite + x);
+            spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + y);
+            switch (i) {
+                case 0: x += (spielfeldHoeheBreite / 6 * 1);
+                    break;
+                case 1: y -= (spielfeldHoeheBreite / 6 * 1);
+                    break;
+                case 2: x -= (spielfeldHoeheBreite / 6 * 1);
+                    break;
+            }
+            arrayZaehler++;
+        }
+        for(int i = 0; i < 4; i++) {
+            if(i== 0) {
+                x = (int) (-(spielfeldHoeheBreite / 6 * 4 + spielfeldHoeheBreite / 16.5));
+                y = (int) (-(spielfeldHoeheBreite / 16.5));
+            }
+            spielfelder[arrayZaehler].setX(spielfeldMitteBreite + x);
+            spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + y);
+
+            x += (spielfeldHoeheBreite / 6 * 1);
+            arrayZaehler++;
+        }
+
+
+        for(int i = 0; i < 4; i++) {
+            if(i== 0) {
+                x = (int) (+(spielfeldHoeheBreite / 6 * 5 - spielfeldHoeheBreite / 16.5));
+                y = (int) (+(spielfeldHoeheBreite / 6 * 5 - spielfeldHoeheBreite / 16.5));
+            }
+
+            spielfelder[arrayZaehler].setX(spielfeldMitteBreite + x);
+            spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + y);
+            switch (i) {
+                case 0: x -= (spielfeldHoeheBreite / 6 * 1);
+                    break;
+                case 1: y -= (spielfeldHoeheBreite / 6 * 1);
+                    break;
+                case 2: x += (spielfeldHoeheBreite / 6 * 1);
+                    break;
+            }
+            arrayZaehler++;
+        }
+        for(int i = 0; i < 4; i++) {
+            if(i== 0) {
+                x = (int) (-(spielfeldHoeheBreite / 16.5));
+                y = (int) (+(spielfeldHoeheBreite / 6 * 4 - spielfeldHoeheBreite / 16.5));
+            }
+            spielfelder[arrayZaehler].setX(spielfeldMitteBreite + x);
+            spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + y);
+
+            y -= (spielfeldHoeheBreite / 6 * 1);
+            arrayZaehler++;
+        }
+
+
+        for(int i = 0; i < 4; i++) {
+            if(i== 0) {
+                x = (int) (+(spielfeldHoeheBreite / 6 * 5 - spielfeldHoeheBreite / 16.5));
+                y = (int) (-(spielfeldHoeheBreite / 6 * 5 + spielfeldHoeheBreite / 16.5));
+            }
+
+            spielfelder[arrayZaehler].setX(spielfeldMitteBreite + x);
+            spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + y);
+            switch (i) {
+                case 0: x -= (spielfeldHoeheBreite / 6 * 1);
+                    break;
+                case 1: y += (spielfeldHoeheBreite / 6 * 1);
+                    break;
+                case 2: x += (spielfeldHoeheBreite / 6 * 1);
+                    break;
+            }
+            arrayZaehler++;
+        }
+        for(int i = 0; i < 4; i++) {
+            if(i== 0) {
+                x = (int) (+(spielfeldHoeheBreite / 6 * 4 - spielfeldHoeheBreite / 16.5));
+                y = (int) (-(spielfeldHoeheBreite / 16.5));
+            }
+            spielfelder[arrayZaehler].setX(spielfeldMitteBreite + x);
+            spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + y);
+
+            x -= (spielfeldHoeheBreite / 6 * 1);
+            arrayZaehler++;
+        }
+
+
+        for(int i = 0; i < 4; i++) {
+            if(i== 0) {
+                x = (int) (-(spielfeldHoeheBreite / 6 * 5 + spielfeldHoeheBreite / 16.5));
+                y = (int) (-(spielfeldHoeheBreite / 6 * 5 + spielfeldHoeheBreite / 16.5));
+            }
+
+            spielfelder[arrayZaehler].setX(spielfeldMitteBreite + x);
+            spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + y);
+            switch (i) {
+                case 0: x += (spielfeldHoeheBreite / 6 * 1);
+                    break;
+                case 1: y += (spielfeldHoeheBreite / 6 * 1);
+                    break;
+                case 2: x -= (spielfeldHoeheBreite / 6 * 1);
+                    break;
+            }
+            arrayZaehler++;
+        }
+        for(int i = 0; i < 4; i++) {
+            if(i== 0) {
+                x = (int) (-(spielfeldHoeheBreite / 16.5));
+                y = (int) (-(spielfeldHoeheBreite / 6 * 4 + spielfeldHoeheBreite / 16.5));
+            }
+            spielfelder[arrayZaehler].setX(spielfeldMitteBreite + x);
+            spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + y);
+
+            y += (spielfeldHoeheBreite / 6 * 1);
+            arrayZaehler++;
+        }
     }
 }

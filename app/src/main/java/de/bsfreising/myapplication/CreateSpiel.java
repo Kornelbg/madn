@@ -8,17 +8,20 @@ public class CreateSpiel {
     private int bildschirmHoeheMitte;
     private int bildschirmHoehe;
     private Spielfeld spielfeld_1;
+    private String[][] spieler;
 
-    public CreateSpiel(String[] spieler, int bildschirmBreiteMitte, int bildschirmHoeheMitte, int bildschirmHoehe) {
+    public CreateSpiel(String[][] spieler, int bildschirmBreiteMitte, int bildschirmHoeheMitte, int bildschirmHoehe) {
         this.bildschirmBreiteMitte = bildschirmBreiteMitte;
         this.bildschirmHoeheMitte = bildschirmHoeheMitte;
         this.bildschirmHoehe = bildschirmHoehe;
+        this.spieler = spieler;
 
-        createSpieler(spieler);
+        createSpieler();
         setSpielfeld();
     }
 
-    private void createSpieler(String[] spieler) {
+    private void createSpieler() {
+
 
     }
 

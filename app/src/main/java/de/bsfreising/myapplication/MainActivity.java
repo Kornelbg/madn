@@ -194,17 +194,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         Intent spiel = new Intent(MainActivity.this, Spiel.class);
 
-        spiel.putExtra("Spieltyp" , "ad");
-        spiel.putExtra("spieler_1" , "USER");
-        spiel.putExtra("spieler_2" , "BOOT");
-        spiel.putExtra("spieler_3" , "SERVER");
-        spiel.putExtra("spieler_4" , "LEER");
+        spiel.putExtra("spieler_1T" , "USER");
+        spiel.putExtra("spieler_2T" , "BOOT");
+        spiel.putExtra("spieler_3T" , "SERVER");
+        spiel.putExtra("spieler_4T" , "LEER");
 
+        spiel.putExtra("spieler_1N" , "Peter");
+        spiel.putExtra("spieler_2N" , "Hans");
+        spiel.putExtra("spieler_3N" , "Jutta");
+        spiel.putExtra("spieler_4N" , "Sahra");
 
         startActivity(spiel);
-
-
-
     }
 
     public void Info() {
