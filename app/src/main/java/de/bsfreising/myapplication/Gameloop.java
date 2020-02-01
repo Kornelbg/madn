@@ -1,5 +1,8 @@
 package de.bsfreising.myapplication;
 
+import android.view.Gravity;
+import android.widget.FrameLayout;
+
 public class Gameloop {
 
     private int spieler = 0;
@@ -49,27 +52,29 @@ public class Gameloop {
                 int zaehlerDF = Spiel.neueSpieler[spieler_].getZaehlerDF(figur);
 
                 System.out.println("ich gehe " + zahlWuerfel +" vor");
-                    Spiel.neueSpieler[spieler_].setFigur(figur, zahlWuerfel, 0);
-                    /* muss noch im Spiel gesetzt werden um auf die views zugreifen zu können
-                      private ImageView gruen[] = new ImageView[4];
-    private FrameLayout.LayoutParams gruenP[] = new FrameLayout.LayoutParams[4];
-    private ImageView gelb[] = new ImageView[4];
-    private FrameLayout.LayoutParams gelbP[] = new FrameLayout.LayoutParams[4];
-    private ImageView blau[] = new ImageView[4];
-    private FrameLayout.LayoutParams blauP[] = new FrameLayout.LayoutParams[4];
-    private ImageView orange[] = new ImageView[4];
-    private FrameLayout.LayoutParams orangeP[] = new FrameLayout.LayoutParams[4];
-                     */
-                spielerHatGewuerfelt = false;
 
-                if(nochwurfeln == 0) {
-                    if(spieler < 5) {
-                        spieler++;
-                        System.out.println(spieler + " gehe testetettetetet");
-                    }else {
-                        spieler = 0;
+                if(true) {
+                    Spiel.neueSpieler[spieler_].setFigur(figur, 0, 0);
+
+                    FrameLayout.LayoutParams feldParams = new FrameLayout.LayoutParams((int) ((Spiel.SpielfeldHoeheBreite / 16.5) / 4 * 3), (int) ((Spiel.SpielfeldHoeheBreite / 16.5) / 4 * 3));
+                    feldParams.leftMargin = ((Spiel.main.getFelder(Spiel.neueSpieler[spieler_].getPosFigur(figur)).getX()) + 5);
+                    feldParams.bottomMargin = ((Spiel.main.getFelder(Spiel.neueSpieler[spieler_].getPosFigur(figur)).getY()) + 5);
+                    feldParams.gravity = Gravity.BOTTOM + Gravity.LEFT;
+                    Spiel.figurenSpieler[spieler_ * 4 + figur].setLayoutParams(feldParams);
+
+
+                    spielerHatGewuerfelt = false;
+
+
+                    if (nochwurfeln == 0) {
+                        if (spieler < 5) {
+                            spieler++;
+                            System.out.println(spieler + " gehe testetettetetet");
+                        } else {
+                            spieler = 0;
+                        }
+
                     }
-
                 }
             }
 

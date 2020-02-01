@@ -42,7 +42,7 @@ public class Spiel extends AppCompatActivity {
     private int bildschirmBreite = 0;
     private int bildschirmHoehe = 0;
 
-    private int SpielfeldHoeheBreite = 0;
+   public static int SpielfeldHoeheBreite = 0;
     private int rSPielfeldHoeheBreite = 0;
 
     private int bildschirmBreiteMitte = 0;
@@ -53,8 +53,9 @@ public class Spiel extends AppCompatActivity {
     public static TextView augenwuerfel;
 
     private ImageView feld;
+    public static ImageView[] figurenSpieler = new ImageView[16];
 
-    private  CreateSpiel main;
+   public static CreateSpiel main;
 
 
 
@@ -162,27 +163,27 @@ public class Spiel extends AppCompatActivity {
 
         for(int i = 0; i < 4; i++) {
             for(int a = 0; a < 4; a++) {
-                feld = new ImageView(this);
+                figurenSpieler[i*4 +a] =  new ImageView(this);
                 switch (i) {
                     case 0 :
                         switch (a) {
-                            case 0 : feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 0 : figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  0|0 " );
                                 gameloop.figurZiehen(0, 0);
 
                             }});
                                 break;
-                            case 1 : feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 1 : figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  0|1 " );
                                 gameloop.figurZiehen(0 ,1);
                             }});
                                 break;
-                            case 2 : feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 2 : figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  0|2 " );
                                 gameloop.figurZiehen(0, 2);
                             }});
                                 break;
-                            case 3: feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 3: figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  0|3 " );
                                 gameloop.figurZiehen(0, 3);
                             }});
@@ -191,22 +192,22 @@ public class Spiel extends AppCompatActivity {
                         break;
                     case 1 :
                         switch (a) {
-                            case 0 : feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 0 : figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  1|0 " );
                                 gameloop.figurZiehen(1, 0);
                             }});
                                 break;
-                            case 1 : feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 1 : figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  1|1 " );
                                 gameloop.figurZiehen(1, 1);
                             }});
                                 break;
-                            case 2 : feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 2 : figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  1|2 " );
                                 gameloop.figurZiehen(1, 2);
                             }});
                                 break;
-                            case 3: feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 3: figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  1|3 " );
                                 gameloop.figurZiehen(1, 3);
                             }});
@@ -215,22 +216,22 @@ public class Spiel extends AppCompatActivity {
                         break;
                     case 2 :
                         switch (a) {
-                            case 0 : feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 0 : figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  2|0 " );
                                 gameloop.figurZiehen(2, 0);
                             }});
                                 break;
-                            case 1 : feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 1 : figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  2|1 " );
                                 gameloop.figurZiehen(2, 1);
                             }});
                                 break;
-                            case 2 : feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 2 : figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  2|2 " );
                                 gameloop.figurZiehen(2, 2);
                             }});
                                 break;
-                            case 3: feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 3: figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  2|3 " );
                                 gameloop.figurZiehen(2, 3);
 
@@ -240,22 +241,22 @@ public class Spiel extends AppCompatActivity {
                         break;
                     case 3 :
                         switch (a) {
-                            case 0 : feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 0 : figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  3|0 " );
                                 gameloop.figurZiehen(3, 0);
                             }});
                                 break;
-                            case 1 : feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 1 : figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  3|1 " );
                                 gameloop.figurZiehen(3, 1);
                             }});
                                 break;
-                            case 2 : feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 2 : figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  3|2 " );
                                 gameloop.figurZiehen(3, 2);
                             }});
                                 break;
-                            case 3: feld.setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
+                            case 3: figurenSpieler[i*4 +a].setOnClickListener(new View.OnClickListener() {@Override public void onClick(View v){
                                 System.out.println("hallo ich habe einen Onclicklisener und bin -->  3|3 " );
                                 gameloop.figurZiehen(3, 3);
                             }});
@@ -267,13 +268,13 @@ public class Spiel extends AppCompatActivity {
 
 
                 switch (neueSpieler[i].getFarbe()) {
-                    case 0: feld.setImageResource(R.drawable.orange);
+                    case 0: figurenSpieler[i*4 +a].setImageResource(R.drawable.orange);
                         break;
-                    case 1: feld.setImageResource(R.drawable.gruen);
+                    case 1: figurenSpieler[i*4 +a].setImageResource(R.drawable.gruen);
                         break;
-                    case 2: feld.setImageResource(R.drawable.blau);
+                    case 2: figurenSpieler[i*4 +a].setImageResource(R.drawable.blau);
                         break;
-                    case 3: feld.setImageResource(R.drawable.gelb);
+                    case 3: figurenSpieler[i*4 +a].setImageResource(R.drawable.gelb);
                         break;
                 }
                 int pos = neueSpieler[i].getPosFigur(a);
@@ -286,7 +287,7 @@ public class Spiel extends AppCompatActivity {
                 feldParams.leftMargin = (x +5);
                 feldParams.bottomMargin = (y +5);
                 feldParams.gravity = Gravity.BOTTOM + Gravity.LEFT;
-                spielbereich.addView(feld, feldParams);
+                spielbereich.addView(figurenSpieler[i*4 +a], feldParams);
             }
         }
     }
