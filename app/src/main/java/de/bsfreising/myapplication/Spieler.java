@@ -10,22 +10,19 @@ public class Spieler {
 
     private Figur[] figuren = new Figur[4];
 
-
-
-
-
-
     public Spieler(String name, int punke, int spielerId) {
 
         this.name = name;
         this.punkte = punke;
         this.spielerId = spielerId;
-        this.spielerId = farbe;
+        this.farbe = spielerId;
+        System.out.println(spielerId + "  test hallo");
+
         addFieguren();
-       // this.spielerTyp = spielerTyp;
     }
-    public int  setFigur(int figurID,int posFigur, int zaehlerDF) {
-        return figuren[figurID].setFigur(posFigur, zaehlerDF);
+    public int setFigur(int figurID,int posFigur, int zaehlerDF) {
+        figuren[figurID].setFigur(posFigur, zaehlerDF);
+        return figuren[figurID].getPosFigur();
     }
     public int getPosFigur(int figurID) {return figuren[figurID].getPosFigur(); }
     public int getZaehlerDF(int figurID) { return figuren[figurID].getZaehlerDF(); }
@@ -40,9 +37,14 @@ public class Spieler {
     public int getFieguren() { return this.spielerId;}
     public  void setFieguren(int spielerId) {this.spielerId = spielerId;}
 
+    public int getFarbe() { return this.farbe; }
+    //private void setFarbe(int farbe) { this.farbe = farbe; }
+
     private void addFieguren(){
         for(int i = 0; i < 4; i++) {
-            int feld = 8 * spielerId +i;
+            int feld = 8 * this.spielerId + i + 40 ;
+            System.out.println("hallo ich bin eine id 1....." + spielerId);
+            System.out.println("hallo ich bin eine id ....." + feld);
             figuren[i] = new Figur(feld);
         }
     }

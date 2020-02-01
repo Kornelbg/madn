@@ -15,7 +15,7 @@ public class Figur {
         this.zaehlerDF = zaehlerDF;
     }
 
-    public int setFigur(int zaehlerDF, int posFigur) {
+    public int setFigur( int posFigur, int zaehlerDF) {
         this.zaehlerDF = zaehlerDF;
         this.posFigur = posFigur;
         return this.posFigur;

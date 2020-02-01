@@ -5,8 +5,8 @@ public class SpielerServer extends Spieler {
     // Konfliktfall die entscheidet oder es soll ganz durch ihn entschieden werden
 
 
-    public SpielerServer(String name, int punke, int fieguren) {
-        super(name, punke, fieguren);    // spielertyp == 1 --> Spieler User
+    public SpielerServer(String name, int punke, int spielerid) {
+        super(name, punke, spielerid);    // spielertyp == 1 --> Spieler User
     }
 
 
