@@ -13,10 +13,9 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textViewUser"
-            android:layout_width="238dp"
-            android:layout_height="50dp"
-            android:text="TextView" />
+            android:id="@+id/augenWuerfel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/wuerfel"
