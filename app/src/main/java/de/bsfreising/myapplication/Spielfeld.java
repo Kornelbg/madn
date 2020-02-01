@@ -125,6 +125,7 @@ public class Spielfeld {
             }
 
 
+
         }
 
 
@@ -144,7 +145,7 @@ public class Spielfeld {
                 pointSFX += (spielfeldHoeheBreite / 6 * 1);
                 arrayZaehler++;
             }
-            for(int ic = 0; ic < 4; ic++ ) {
+            for(int i = 0; i < 4; i++ ) {
                 spielfelder[arrayZaehler].setX(spielfeldMitteBreite + pointSFX);
                 spielfelder[arrayZaehler].setY(spielfeldMitteHoehe + pointSFY);
                 pointSFY += (spielfeldHoeheBreite / 6 * 1);

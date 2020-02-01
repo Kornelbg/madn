@@ -90,13 +90,13 @@ public class Spiel extends AppCompatActivity {
            String name =  spieler[i][1];
 
             switch (spieler[i][0]) {
-                case "LEER": neueSpieler[i] = new Spieler(name, 0, i);
+                case "LEER": neueSpieler[i] = new SpielerLeer(name, 0, i);
                     break;
-                case "USER": neueSpieler[i] = new Spieler(name, 0, i);
+                case "USER": neueSpieler[i] = new SpielerUser(name, 0, i);
                     break;
-                case "BOOT": neueSpieler[i] = new Spieler(name, 0, i);
+                case "BOOT": neueSpieler[i] = new SpielerBoot(name, 0, i);
                     break;
-                case "SERVER": neueSpieler[i] = new Spieler(name, 0, i);
+                case "SERVER": neueSpieler[i] = new SpielerServer(name, 0, i);
                     break;
             }
 
