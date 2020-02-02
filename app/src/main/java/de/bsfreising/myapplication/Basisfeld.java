@@ -2,7 +2,7 @@ package de.bsfreising.myapplication;
 
 public class Basisfeld extends Feld {
 
-    private final int feldart = 1;          // 1 == Basisfeld
+    private int feldart = 1;          // 1 == Basisfeld
 
     public Basisfeld(int feldbesitzer) {
         super(feldbesitzer);

@@ -91,7 +91,6 @@ public class Gameloop {
 
             if(!(zahlWuerfel != 6 && Spiel.neueSpieler[spieler_].getZaehlerDF(figur) == 0) ){
 
-            //spielerHatGewuerfelt = false;
             Spiel.augenwuerfel.setText("hallo");
 
             if(spieler_ == this.spieler) {
@@ -101,10 +100,13 @@ public class Gameloop {
                int netxFeld = figurPLUSzahl(posF, zaehlerDF, spieler_, figur );
 
                double figurid = Spiel.main.getFigurid(netxFeld);
-                int i = (int) (figurid - (figurid % 10));
-                int a = (int) figurid % 10 * 10;
 
-                if(figurid != 0 &&i != spieler_) {
+                int i = (int) figurid;
+                int a = (int) (figurid * 10) % 10;
+
+                System.out.println(i + " spieler " + a+ "figuerid " +netxFeld +" netxFeld   testeteteet");
+
+                if(figurid != 1000 && i != spieler_) {
 
                     int feld = 8 * i + a + 40 ;
                     Spiel.neueSpieler[i].setFigur(a, feld, 0);
@@ -114,6 +116,8 @@ public class Gameloop {
                     feldParams.bottomMargin = ((Spiel.main.getFelder(Spiel.neueSpieler[i].getPosFigur(a)).getY()) + 5);
                     feldParams.gravity = Gravity.BOTTOM + Gravity.LEFT;
                     Spiel.figurenSpieler[i * 4 + a].setLayoutParams(feldParams);
+
+                    Spiel.main.setFigurid(netxFeld, 1000);
 
                 }
                 int neuerDF;
@@ -131,6 +135,12 @@ public class Gameloop {
                     feldParams.bottomMargin = ((Spiel.main.getFelder(Spiel.neueSpieler[spieler_].getPosFigur(figur)).getY()) + 5);
                     feldParams.gravity = Gravity.BOTTOM + Gravity.LEFT;
                     Spiel.figurenSpieler[spieler_ * 4 + figur].setLayoutParams(feldParams);
+
+                    double b = spieler_  + figur / 10;
+                    System.out.println("neue!!!! " + b + "   Feld "+ netxFeld + "   testeteteet");
+                    Spiel.main.setFigurid(netxFeld, b);
+
+                    Spiel.main.setFigurid(posF, 1000);
 
 
                     spielerHatGewuerfelt = false;
@@ -158,15 +168,27 @@ public class Gameloop {
             return spieler_ * 10 ;
 
 
-        }else if((zaehlerDF + zahlWuerfel) < 41){
-            if(posF + zahlWuerfel < 41) {
-                return posF + zahlWuerfel;
-            }else {
-                return  posF + zahlWuerfel - 40;
+        }else if((zaehlerDF + zahlWuerfel) < 41) {
+
+         if (posF + zahlWuerfel < 41) {
+             return posF + zahlWuerfel;
             }
-        }else {
-                return spieler_ * 10 + figur;
+         else {
+             return posF + zahlWuerfel - 40;
+         }
+        }
+        else {
+            return 40 + figur + 4 + spieler_ * 8;
+
         }
     }
+
+    /*if(posF + zahlWuerfel < 41) {
+        return posF + zahlWuerfel;
+    }else {
+        return  posF + zahlWuerfel - 40;
+    }
+    */
+
 
 }

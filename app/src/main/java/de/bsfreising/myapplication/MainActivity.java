@@ -35,7 +35,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             private TextView textViewCreateUser;
             private CheckBox checkBoxRememberMe;
             private ProgressDialog progressDialog;
-            FirebaseAuth firebaseAuth;
+            //FirebaseAuth firebaseAuth;
 
 
 
@@ -68,13 +68,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
         buttonRegister = (Button) findViewById(R.id.buttonUserInput);
         textViewCreateUser = (TextView) findViewById(R.id.textViewCreateUser);
         progressDialog = new ProgressDialog(this);
-        firebaseAuth = FirebaseAuth.getInstance();
+       // firebaseAuth = FirebaseAuth.getInstance();
         
-        if (firebaseAuth.getCurrentUser() != null) {
+       /* if (firebaseAuth.getCurrentUser() != null) {
             finish();                                                         
             startActivity(new Intent(getApplicationContext(), Spiel.class));
         }
-
+*/
         startbildschirm();
     }
 
@@ -246,7 +246,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         progressDialog.setMessage("Anmeldung läuft");
         progressDialog.show();
 
-        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+       /* firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();   
@@ -258,7 +258,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 
                     }
                 }
-        );
+        );*/
 
     }
 
