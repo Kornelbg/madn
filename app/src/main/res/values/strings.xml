@@ -20,7 +20,7 @@
     <string name="MultyPlayerOffline">Multyplayer offline</string>
     <string name="MultyPlayerOnline">Multyplaer Online</string>
     <string name="richtlinien">AGBs</string>
-    <string name="spielErstellen">erstellen</string>
+    <string name="spielErstellen">single</string>
     <string name="Spieler_1">Spieler 1</string>
     <string name="Spieler_2">Spieler 2</string>
     <string name="Spieler_3">Spieler 3</string>
@@ -40,4 +40,5 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="buttonGuest_multiplayer">multiplayer</string>
 </resources>

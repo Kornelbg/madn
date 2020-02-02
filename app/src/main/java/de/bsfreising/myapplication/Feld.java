@@ -8,6 +8,7 @@ public class Feld {
     private int x = 10;
     private int y = 10;
 
+
     private double figur_id = 0;
 
 
@@ -46,5 +47,7 @@ public class Feld {
     public double getFigur_id() {
         return figur_id;
     }
+
+
 
 }

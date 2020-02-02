@@ -6,7 +6,7 @@ public class SpielerBoot extends Spieler {
 
 
     public SpielerBoot(String name, int punke, int spielerid) {
-        super(name, punke, spielerid);    // spielertyp == 1 --> Spieler User
+        super(name, punke, spielerid, 2);    // spielertyp == 1 --> Spieler User
     }
 
 

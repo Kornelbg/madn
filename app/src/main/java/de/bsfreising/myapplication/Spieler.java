@@ -4,18 +4,19 @@ public class Spieler {
 
     private String name = null;
     private int punkte = 0;
-    //private final int spielerTyp;  // User, Boot, Server, Nicht aktiv
+    private int spielerTyp;  // User, Boot, Server, Nicht aktiv
     private int spielerId = 0;         // 0 == default | 1 == Spieler1 | ..// .
     private int farbe;
 
     private Figur[] figuren = new Figur[4];
 
-    public Spieler(String name, int punke, int spielerId) {
+    public Spieler(String name, int punke, int spielerId, int spielerTyp) {
 
         this.name = name;
         this.punkte = punke;
         this.spielerId = spielerId;
         this.farbe = spielerId;
+        this.spielerTyp = spielerTyp;
         System.out.println(spielerId + "  test hallo");
 
         addFieguren();
@@ -27,7 +28,7 @@ public class Spieler {
     public int getPosFigur(int figurID) {return figuren[figurID].getPosFigur(); }
     public int getZaehlerDF(int figurID) { return figuren[figurID].getZaehlerDF(); }
 
-
+    public int getSpielerTyp(){ return this.spielerTyp; }
     public String getName() { return this.name;}
     public void setName(String name) {this.name = name;}
 
