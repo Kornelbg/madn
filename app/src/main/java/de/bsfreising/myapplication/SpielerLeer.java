@@ -6,7 +6,7 @@ public class SpielerLeer extends Spieler {
 
 
     public SpielerLeer(String name, int punke, int spielerid) {
-        super(name, punke, spielerid);    // spielertyp == 1 --> Spieler User
+        super(name, punke, spielerid, 0);    // spielertyp == 1 --> Spieler User
     }
 
 

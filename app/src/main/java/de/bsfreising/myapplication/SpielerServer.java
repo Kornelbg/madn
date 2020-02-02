@@ -6,7 +6,7 @@ public class SpielerServer extends Spieler {
 
 
     public SpielerServer(String name, int punke, int spielerid) {
-        super(name, punke, spielerid);    // spielertyp == 1 --> Spieler User
+        super(name, punke, spielerid, 3);    // spielertyp == 1 --> Spieler User
     }
 
 

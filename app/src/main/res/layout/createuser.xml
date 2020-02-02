@@ -55,9 +55,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hintUserName"
-                android:textAlignment="textStart"
                 android:maxLength="30"
                 android:singleLine="true"
+                android:textAlignment="textStart"
                 android:visibility="visible" />
 
         </com.google.android.material.textfield.TextInputLayout>

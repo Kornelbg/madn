@@ -5,14 +5,11 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,8 +20,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -58,13 +53,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
             private Button buttonMainActivity;
             private Button buttoPAGnInfo;
 
-            private Button buttonGuest_Spielen;
+            private Button buttonGuest_single;
+            private Button buttonGuest_multiplayer;
 
 
-            private Spinner spinnerGuestSpielerstellen_1;
-            private Spinner spinnerGuestSpielerstellen_2;
-            private Spinner spinnerGuestSpielerstellen_3;
-            private Spinner spinnerGuestSpielerstellen_4;
+
+
 
 
     @Override
@@ -72,7 +66,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         super.onCreate(savedInstanceState);
         buttonRegister = (Button) findViewById(R.id.buttonUserInput);
-        userEmail = (TextInputEditText) findViewById(R.id.inputUserName);
         textViewCreateUser = (TextView) findViewById(R.id.textViewCreateUser);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
@@ -117,8 +110,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.buttoPAGnInfo:
                 Info();
                 break;
-            case R.id.buttonGuest_Spielen:
-                intentSpiel();
+            case R.id.buttonGuest_single:
+                intentSpiel(true);
+                break;
+            case R.id.buttonGuest_multiplayer:
+                intentSpiel(false);
                 break;
         }
     }
@@ -171,40 +167,55 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         buttonMainActivity = findViewById(R.id.buttonPAGMainActivity);
         buttoPAGnInfo = findViewById(R.id.buttoPAGnInfo);
-        buttonGuest_Spielen = findViewById(R.id.buttonGuest_Spielen);
+        buttonGuest_single = findViewById(R.id.buttonGuest_single);
+        buttonGuest_multiplayer = findViewById(R.id.buttonGuest_multiplayer);
 
-        spinnerGuestSpielerstellen_1 = findViewById(R.id.spinnerGuestSpielerstellen_1);
-        spinnerGuestSpielerstellen_2 = findViewById(R.id.spinnerGuestSpielerstellen_2);
-        spinnerGuestSpielerstellen_3 = findViewById(R.id.spinnerGuestSpielerstellen_3);
-        spinnerGuestSpielerstellen_4 = findViewById(R.id.spinnerGuestSpielerstellen_4);
 
 
 
         buttonMainActivity.setOnClickListener(this);
         buttoPAGnInfo.setOnClickListener(this);
-        buttonGuest_Spielen.setOnClickListener(this);
+        buttonGuest_single.setOnClickListener(this);
+        buttonGuest_multiplayer.setOnClickListener(this);
 
     }
 
-    public void intentSpiel() {
+    public void intentSpiel(boolean i) {
 
 
         // muss angepasst werden!
 
+        if(i){
+            Intent spiel = new Intent(MainActivity.this, Spiel.class);
 
-        Intent spiel = new Intent(MainActivity.this, Spiel.class);
+            spiel.putExtra("spieler_1T", "USER");
+            spiel.putExtra("spieler_2T", "BOOT");
+            spiel.putExtra("spieler_3T", "BOOT");
+            spiel.putExtra("spieler_4T", "BOOT");
 
-        spiel.putExtra("spieler_1T" , "USER");
-        spiel.putExtra("spieler_2T" , "BOOT");
-        spiel.putExtra("spieler_3T" , "SERVER");
-        spiel.putExtra("spieler_4T" , "LEER");
+            spiel.putExtra("spieler_1N", "Peter");
+            spiel.putExtra("spieler_2N", "Hans");
+            spiel.putExtra("spieler_3N", "Jutta");
+            spiel.putExtra("spieler_4N", "Sahra");
+            startActivity(spiel);
 
-        spiel.putExtra("spieler_1N" , "Peter");
-        spiel.putExtra("spieler_2N" , "Hans");
-        spiel.putExtra("spieler_3N" , "Jutta");
-        spiel.putExtra("spieler_4N" , "Sahra");
+        } else {
+            Intent spiel = new Intent(MainActivity.this, Spiel.class);
 
-        startActivity(spiel);
+            spiel.putExtra("spieler_1T", "USER");
+            spiel.putExtra("spieler_2T", "USER");
+            spiel.putExtra("spieler_3T", "USER");
+            spiel.putExtra("spieler_4T", "USER");
+
+            spiel.putExtra("spieler_1N", "Peter");
+            spiel.putExtra("spieler_2N", "Hans");
+            spiel.putExtra("spieler_3N", "Jutta");
+            spiel.putExtra("spieler_4N", "Sahra");
+            startActivity(spiel);
+        }
+
+
+
     }
 
     public void Info() {

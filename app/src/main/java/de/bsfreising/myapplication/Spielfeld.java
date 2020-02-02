@@ -55,6 +55,12 @@ public class Spielfeld {
 
         return spielfelder[i];
     }
+    public double getFigur(int feld) {
+        return spielfelder[feld].getFigur_id();
+    }
+    public void setFigur(int feld, double figurid) {
+        spielfelder[feld].setFigur_id(figurid);
+    }
 
     public int getFeldbesitzer(int i) {
 

@@ -35,12 +35,18 @@ public class CreateSpiel {
        return spielfeld_1.getFelder(i);
     }
 
+    public double getFigurid(int feld) {
+        return spielfeld_1.getFigur(feld);
+    }
+    public void setFigurid(int feld, double figurid) {
+        spielfeld_1.setFigur(feld, figurid);
+    }
     public int getFeldbesitzer(int i) {
         return spielfeld_1.getFeldbesitzer(i);
     }
 
 
-        private void serFieguren() {
+        private void setFieguren() {
         // Spielstand überprüfen --> ...
     }
 

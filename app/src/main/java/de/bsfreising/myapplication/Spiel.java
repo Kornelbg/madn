@@ -55,7 +55,7 @@ public class Spiel extends AppCompatActivity {
     private ImageView feld;
     public static ImageView[] figurenSpieler = new ImageView[16];
 
-   public static CreateSpiel main;
+    public static CreateSpiel main;
 
 
 
@@ -68,11 +68,6 @@ public class Spiel extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Intent spiel = getIntent();
-       /* String[][] spieler = { {spiel.getStringExtra("spieler_1T")},{spiel.getStringExtra("spieler_1N")},
-                {spiel.getStringExtra("spieler_2T")},{spiel.getStringExtra("spieler_2N")},
-                {spiel.getStringExtra("spieler_3T")},{spiel.getStringExtra("spieler_3N")},
-                {spiel.getStringExtra("spieler_4T")},{spiel.getStringExtra("spieler_4N")},};
-        this.spieler = spieler;*/
 
         this.spieler[0][0] = spiel.getStringExtra("spieler_1T");
         this.spieler[0][1] = spiel.getStringExtra("spieler_1N");
@@ -149,11 +144,13 @@ public class Spiel extends AppCompatActivity {
             }
 
             // muss noch mit shadespreference gefüllt werden falls nötig!!!!
-            for(int a = 0; a < 4; a++ ) {
+            /*for(int a = 0; a < 4; a++ ) {
                 if(false) {
                     int peter = neueSpieler[i].setFigur(a, 40, 0);
                 }
             }
+
+             */
 
 
 
