@@ -96,7 +96,7 @@ public class Spielfeld {
 
             sicheresfeldZaehler = af1 * 10 + 1;
 
-            spielfelder[arrayZaehler] = new Sicheresfeld(af1 + 1);
+            spielfelder[arrayZaehler] = new Sicheresfeld(0);
             spielfelder[arrayZaehler].setId(arrayZaehler);
             arrayZaehler++;
             besitzer = af1 + 1;

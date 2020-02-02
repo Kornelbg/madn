@@ -16,11 +16,14 @@ public class CreateSpiel {
         this.bildschirmHoehe = bildschirmHoehe;
         this.spieler = spieler;
 
-
+        createSpieler();
         setSpielfeld();
     }
 
+    private void createSpieler() {
 
+
+    }
 
 
     private void setSpielfeld() {

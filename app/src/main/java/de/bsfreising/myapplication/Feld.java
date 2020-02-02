@@ -2,7 +2,7 @@ package de.bsfreising.myapplication;
 
 public class Feld {
 
-    public int feldbesitzer;       // 0 == allen | 1 == Spieler 1 | 2 == Spieler 2 | ...
+    public final int feldbesitzer;       // 0 == allen | 1 == Spieler 1 | 2 == Spieler 2 | ...
 
     private double id;
     private int x = 10;
