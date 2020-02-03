@@ -175,7 +175,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         buttonMainActivity.setOnClickListener(this);
         buttoPAGnInfo.setOnClickListener(this);
-        buttonGuest_single.setOnClickListener(this);
+       // buttonGuest_single.setOnClickListener(this);
         buttonGuest_multiplayer.setOnClickListener(this);
 
     }
