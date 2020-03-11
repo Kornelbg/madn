@@ -6,17 +6,39 @@
     <string name="buttonLogin">Login</string>
     <string name="hintUserName">E-Mail</string>
     <string name="hintUserPassword">PASSWORD</string>
+    <string name="back">zurück</string>
     <string name="buttonUserInput">erstellen</string>
     <string name="mainTitle2">\"Mensch ärgere dich nicht\"</string>
     <string name="remember_me">remember me</string>
     <string name="TextViewBenutzerErstellen">Benutzer erstellen</string>
+    <string name="DefaultControll">WIEDERHOLUNG</string>
     <string name="allgemeineInfoUE">Allgemeine Informationen</string>
     <string name="AllgemeineInfoText">Absatz 1</string>
     <string name="hintUserPasswordWiederholen">PASSWORD WIEDERHOLEN</string>
     <string name="hintNickName">E-Mail</string>
     <string name="Absatz2">Absatz 2 </string>
+    <string name="MultyPlayerOffline">Multyplayer offline</string>
+    <string name="MultyPlayerOnline">Multyplaer Online</string>
     <string name="richtlinien">AGBs</string>
     <string name="spielErstellen">single</string>
+    <string name="Spieler_1">Spieler 1</string>
+    <string name="Spieler_2">Spieler 2</string>
+    <string name="Spieler_3">Spieler 3</string>
+    <string name="Spieler_4">Spieler 4</string>
 
+    <string-array name="spielertyp">
+        <item>Leer</item>
+        <item>User</item>
+        <item>Boot</item>
+    </string-array>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
     <string name="buttonGuest_multiplayer">multiplayer</string>
 </resources>
