@@ -254,7 +254,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         if (task.isSuccessful()) {
                             //finish();
                             //startActivity(new Intent(getApplicationContext(), Spiel.class));
-                            System.out.println("hallo ich bin ein test ");
+                            System.out.println("in Firebase eingeloggt");
                             alsGastSpielen();
                         }
 
