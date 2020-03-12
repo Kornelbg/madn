@@ -9,6 +9,7 @@ import android.widget.Button;
 
 public class AGBs extends Activity implements View.OnClickListener {
 // test
+    //test2
     private Button buttonAGBsClose;
 
     @Override
