@@ -18,8 +18,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 
 import java.lang.reflect.Array;
 import java.nio.file.Files;
@@ -28,7 +27,6 @@ public class Spiel extends AppCompatActivity {
 
     private Gameloop gameloop;
 
-    FirebaseAuth firebaseA1uth;
 
     private Button wuerfel;
     private int zahlWuerfel = 0;
