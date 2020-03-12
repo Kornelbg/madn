@@ -229,7 +229,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         mSaveSharedPreferences(); // Speichert den Username wen Rememberme true ist
         //verbinfung zu Fierbase aufbauen und dateneingabe üermitteln
-        String email = userEmail.getText().toString().trim();
+       // String email = userEmail.getText().toString().trim();
+        String email = loginInputUserName.getText().toString().trim();
         String password = loginUserInputPassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
