@@ -6,7 +6,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option name="testRunner" value="PLATFORM" />
+=======
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT" />
+        </compositeConfiguration>
+>>>>>>> parent of 7251005... Firebase Login
 =======
         <compositeConfiguration>
           <compositeBuild compositeDefinitionSource="SCRIPT" />
