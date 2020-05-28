@@ -70,10 +70,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
         
-        if (firebaseAuth.getCurrentUser() != null) {
+      /*  if (firebaseAuth.getCurrentUser() != null) {
             finish();                                                         
             startActivity(new Intent(getApplicationContext(), Spiel.class));
-        }
+        }*/
 
         startbildschirm();
     }
@@ -175,7 +175,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         buttonMainActivity.setOnClickListener(this);
         buttoPAGnInfo.setOnClickListener(this);
-       // buttonGuest_single.setOnClickListener(this);
+        buttonGuest_single.setOnClickListener(this);
         buttonGuest_multiplayer.setOnClickListener(this);
 
     }
@@ -229,6 +229,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         mSaveSharedPreferences(); // Speichert den Username wen Rememberme true ist
         //verbinfung zu Fierbase aufbauen und dateneingabe üermitteln
+       // String email = userEmail.getText().toString().trim();
         String email = loginInputUserName.getText().toString().trim();
         String password = loginUserInputPassword.getText().toString().trim();
 
@@ -249,12 +250,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        progressDialog.dismiss();   
+                        progressDialog.dismiss();
                         if (task.isSuccessful()) {
-                            finish();
-                            startActivity(new Intent(getApplicationContext(), Spiel.class));
+                            //finish();
+                            //startActivity(new Intent(getApplicationContext(), Spiel.class));
+                            System.out.println("in Firebase eingeloggt");
+                            alsGastSpielen();
                         }
-                
+
                 
                     }
                 }

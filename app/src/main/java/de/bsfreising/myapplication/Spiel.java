@@ -18,9 +18,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 
 import java.lang.reflect.Array;
 import java.nio.file.Files;
@@ -29,7 +27,6 @@ public class Spiel extends AppCompatActivity {
 
     private Gameloop gameloop;
 
-    FirebaseAuth firebaseAuth;
 
     private Button wuerfel;
     private int zahlWuerfel = 0;
@@ -58,23 +55,12 @@ public class Spiel extends AppCompatActivity {
 
     public static CreateSpiel main;
 
-    private TextInputEditText loginInputUserName;
-    private TextInputEditText loginUserInputPassword;
-
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spiel);
-        firebaseAuth = FirebaseAuth.getInstance();
-
-        if (firebaseAuth.getCurrentUser() == null) {
-            finish();
-            startActivity(new Intent(this, MainActivity.class));
-        }
-
-        FirebaseUser user = firebaseAuth.getCurrentUser();
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -104,8 +90,20 @@ public class Spiel extends AppCompatActivity {
             }
         });
 
-        loginInputUserName = (TextInputEditText) findViewById(R.id.loginInputUserName);
-        loginUserInputPassword = (TextInputEditText) findViewById(R.id.loginUserInputPassword);
+
+/*
+        Spieler        FirebaseUser user = firebaseAuth.getCurrentUser();
+
+
+        if (firebaseAuth.getCurrentUser() == null)
+        {
+            startActivity(new Intent(this, MainActivity.class) );
+            finish();
+
+        }
+
+ */
+
 
     }
 
